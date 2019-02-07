@@ -44,6 +44,12 @@ div.a {
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 
+<script>
+function myFunction() {
+  document.getElementById("demo").innerHTML = "YOU CLICKED ME!";
+}
+</script>
+
 </head>
 <body>
 
@@ -52,7 +58,11 @@ div.a {
 
 <p>Do it.</p>
 
-<button class="button">Do it now.</button>
+<div class="button">
+
+<button id="demo" onclick="myFunction()">Do it now.</button>
+
+</div>
 </div>
 
 <div class="footer">

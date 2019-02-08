@@ -46,9 +46,59 @@ div.z {
 
 <script>
 
-function func1() {
-  document.write("<center><h1>5</h1></center>","<center><h1>4</h1></center>","<center><h1>3</h1></center>","<center><h1>2</h1></center>","<center><h1>1</h1></center>");
+function timedText() {
+  setTimeout(myTimeout1, 0100)
+  setTimeout(myTimeout2, 1100)
+  setTimeout(myTimeout3, 2100)
+  setTimeout(myTimeout4, 3100)
+  setTimeout(myTimeout5, 4100)
+  setTimeout(myTimeout6, 5100)
+
+  setTimeout(myTimeout7, 6100)
+  setTimeout(myTimeout8, 6200)
+  setTimeout(myTimeout9, 6300)
+  setTimeout(myTimeout10, 6400)
+  setTimeout(myTimeout11, 6500)
+  setTimeout(myTimeout12, 6600)
+
+  setTimeout(myTimeout25, 15000)
 }
+
+
+function myTimeout1() {
+  document.getElementById("demo1").innerHTML = "5";
+}
+function myTimeout2() {
+  document.getElementById("demo1").innerHTML = "4";
+}
+function myTimeout3() {
+  document.getElementById("demo1").innerHTML = "3";
+}
+function myTimeout4() {
+  document.getElementById("demo1").innerHTML = "2";
+}
+function myTimeout5() {
+  document.getElementById("demo1").innerHTML = "1";
+}
+function myTimeout6() {
+  document.getElementById("demo1").innerHTML = "1";
+}
+function myTimeout7() {
+  document.getElementById("demo1").innerHTML = "M";
+}
+function myTimeout8() {
+  document.getElementById("demo1").innerHTML = "E";
+}
+function myTimeout9() {
+  document.getElementById("demo1").innerHTML = "A";
+}
+function myTimeout10() {
+  document.getElementById("demo1").innerHTML = "T";
+}
+function myTimeout10() {
+  document.getElementById("demo2").innerHTML = "MEAT MARKET ACTIVATED";
+}
+
 
 </script>
 
@@ -63,7 +113,11 @@ function func1() {
 
 <div class="button">
 
-<button id="demo" onclick="setTimeout(func1, 100)">Do it now.</button>
+<button id="dummy" onclick="setTimeout(timedText, 10)">Do it now.</button>
+
+<p id="demo1"> </p>
+
+<p id="demo2"> </p>
 
 </div>
 </div>

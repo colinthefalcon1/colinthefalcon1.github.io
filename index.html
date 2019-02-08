@@ -16,7 +16,7 @@
   transition: 0.0s;
 }
 
-div.a {
+div.z {
   text-align: center;
 }
 
@@ -33,6 +33,7 @@ div.a {
   width: 100%;
   text-align: center;
 }
+
 </style>
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -43,26 +44,26 @@ div.a {
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-$(document).ready(function(){
-  $("button").click(function(){
-    $("button").replaceWith("<h1>5</h1>");
-  });
-});
+
+function func1() {
+  document.write("<center><h1>Hello World!</h1></center>");
+}
+
 </script>
 
 </head>
+
 <body>
 
-<div class="a">
-<h1>Enter the market</h1>
+<div class="z">
+<h2>Enter the market</h2>
 
 <p>Do it.</p>
 
 <div class="button">
 
-<button id="demo" onclick="myFunction()">Do it now.</button>
+<button id="demo" onclick="setInterval(func1, 1000)">Do it now.</button>
 
 </div>
 </div>

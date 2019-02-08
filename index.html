@@ -20,8 +20,8 @@ div.a {
   text-align: center;
 }
 
-.slide-out-fwd-center {
-	animation: slide-out-fwd-center 0.7s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+.scale-out-center {
+	animation: scale-out-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
 
 .button:active {opacity: 0.0}
@@ -47,7 +47,7 @@ div.a {
 <script>
 $(document).ready(function(){
   $("button").click(function(){
-    $("this").replaceWith("5");
+    $("button").replaceWith("<h1>5</h1>");
   });
 });
 </script>

@@ -15,10 +15,7 @@
   width: 100%;
   text-align: center;
 }
-.centerleft {
-  padding: 10px;
-  width: 800px;
-}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -45,18 +42,6 @@ Generic slide show website w/ wooly mammoth photo
 
 "It's a pyramid scheme"
 */
-
-var i = 0;
-var txt = 'BIG BOY MEAT MARKET';
-var speed = 50;
-
-function timedText() {
-  if (i < txt.length) {
-    document.getElementById("demo1").innerHTML += txt.charAt(i);
-    i++;
-    setTimeout(timedText, speed);
-  }
-}
 </script>
 
 </head>
@@ -84,9 +69,9 @@ function timedText() {
 
 <p>*"Wooly Mammoth" is just the branding of our meat, not a description of the product.<p>
 
-  <form action="bigboymeats.html">
-      <input type="submit" value="Buy Big Boy Bucks ₿" />
-  </form>
+<form action="bigboymeats.html">
+    <input type="submit" value="Buy Big Boy Bucks ₿" />
+</form>
 
 <h2 id="demo1"> </h2>
 <h1 id="demo2"> </h1>

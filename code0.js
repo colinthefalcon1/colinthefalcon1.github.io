@@ -1,8 +1,12 @@
 gdjs.melCode = {};
 gdjs.melCode.GDWazowskiObjects1= [];
 gdjs.melCode.GDWazowskiObjects2= [];
+gdjs.melCode.GDEnemyObjects1= [];
+gdjs.melCode.GDEnemyObjects2= [];
 gdjs.melCode.GDMelObjects1= [];
 gdjs.melCode.GDMelObjects2= [];
+gdjs.melCode.GDFloorRotatingObjects1= [];
+gdjs.melCode.GDFloorRotatingObjects2= [];
 gdjs.melCode.GDFloorObjects1= [];
 gdjs.melCode.GDFloorObjects2= [];
 
@@ -23,6 +27,19 @@ gdjs.melCode.GDWazowskiObjects1.createFrom(runtimeScene.getObjects("Wazowski"));
 }
 
 
+{
+
+
+{
+gdjs.melCode.GDFloorRotatingObjects1.createFrom(runtimeScene.getObjects("FloorRotating"));
+{for(var i = 0, len = gdjs.melCode.GDFloorRotatingObjects1.length ;i < len;++i) {
+    gdjs.melCode.GDFloorRotatingObjects1[i].rotate(50, runtimeScene);
+}
+}}
+
+}
+
+
 }; //End of gdjs.melCode.eventsList0xb0cf8
 
 
@@ -30,8 +47,12 @@ gdjs.melCode.func = function(runtimeScene) {
 runtimeScene.getOnceTriggers().startNewFrame();
 gdjs.melCode.GDWazowskiObjects1.length = 0;
 gdjs.melCode.GDWazowskiObjects2.length = 0;
+gdjs.melCode.GDEnemyObjects1.length = 0;
+gdjs.melCode.GDEnemyObjects2.length = 0;
 gdjs.melCode.GDMelObjects1.length = 0;
 gdjs.melCode.GDMelObjects2.length = 0;
+gdjs.melCode.GDFloorRotatingObjects1.length = 0;
+gdjs.melCode.GDFloorRotatingObjects2.length = 0;
 gdjs.melCode.GDFloorObjects1.length = 0;
 gdjs.melCode.GDFloorObjects2.length = 0;
 

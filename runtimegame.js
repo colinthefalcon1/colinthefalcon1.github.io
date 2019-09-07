@@ -26,6 +26,10 @@ gdjs.RuntimeGame = function(data, spec) {
   this._fontManager = new gdjs.FontManager(
     data.resources ? data.resources.resources : undefined
   );
+  this._jsonManager = new gdjs.JsonManager(
+    data.resources ? data.resources.resources : undefined
+  );
+  this._maxFPS = data ? parseInt(data.properties.maxFPS, 10) : 60;
   this._minFPS = data ? parseInt(data.properties.minFPS, 10) : 15;
 
   this._defaultWidth = data.properties.windowWidth; //Default size for scenes cameras
@@ -101,6 +105,15 @@ gdjs.RuntimeGame.prototype.getFontManager = function() {
  */
 gdjs.RuntimeGame.prototype.getInputManager = function() {
   return this._inputManager;
+};
+
+/**
+ * Get the JSON manager of the game, used to load JSON from game
+ * resources.
+ * @return {gdjs.JsonManager} The json manager for the game
+ */
+gdjs.RuntimeGame.prototype.getJsonManager = function() {
+  return this._jsonManager;
 };
 
 /**
@@ -341,8 +354,24 @@ gdjs.RuntimeGame.prototype.startGameLoop = function() {
 
   //The standard game loop
   var that = this;
-  this._renderer.startGameLoop(function(elapsedTime) {
+  var accumulatedElapsedTime = 0;
+  this._renderer.startGameLoop(function(lastCallElapsedTime) {
     if (that._paused) return true;
+
+    // Skip the frame if we rendering frames too fast
+    accumulatedElapsedTime += lastCallElapsedTime;
+    if (
+      that._maxFPS > 0 &&
+      1000.0 / accumulatedElapsedTime > that._maxFPS + 7
+    ) {
+      // Only skip frame if the framerate is 7 frames above the maximum framerate.
+      // Most browser/engines will try to run at slightly more than 60 frames per second.
+      // If game is set to have a maximum FPS to 60, then one out of two frames will be dropped.
+      // Hence, we use a 7 frames margin to ensure that we're not skipping frames too much.
+      return true;
+    }
+    var elapsedTime = accumulatedElapsedTime;
+    accumulatedElapsedTime = 0;
 
     //Manage resize events.
     if (that._notifySceneForResize) {

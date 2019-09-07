@@ -112,38 +112,69 @@ gdjs.registerObjects = function() {
 };
 
 /**
- * Register the runtime behaviors that can be used bt runtimeObject.<br>
- * Behaviors must be part of gdjs and have their property "thisIsARuntimeBehaviorConstructor"
- * defined and set to the name of the type of the behavior so as to be recognized.
- * The name of the type of the behavior must be complete, with the namespace if any. For
+ * Register the runtime behaviors that can be used bt runtimeObject.
+ *
+ * Behavior must be a property on gdjs (or on a inner object, but not on any object nested below)
+ * and have a property "thisIsARuntimeBehaviorConstructor" defined and set
+ * to the type of the behavior to be recognized.
+ *
+ * The type of the behavior must be complete, with the namespace of the extension. For
  * example, if you are providing a Draggable behavior in the DraggableBehavior extension,
  * the full name of the type of the behavior is "DraggableBehavior::Draggable".
  */
 gdjs.registerBehaviors = function() {
   gdjs.behaviorsTypes.clear();
 
-  for (var p in this) {
-    if (this.hasOwnProperty(p)) {
-      if (gdjs[p].thisIsARuntimeBehaviorConstructor != undefined) {
+  for (var gdjsProperty in this) {
+    if (this.hasOwnProperty(gdjsProperty)) {
+      // Search in object inside gdjs.
+      var innerObject = gdjs[gdjsProperty];
+      if (innerObject.thisIsARuntimeBehaviorConstructor != undefined) {
         gdjs.behaviorsTypes.put(
-          gdjs[p].thisIsARuntimeBehaviorConstructor,
-          gdjs[p]
+          innerObject.thisIsARuntimeBehaviorConstructor,
+          innerObject
         );
+      } else if (
+        Object.prototype.toString.call(innerObject) !== '[object Array]' &&
+        typeof innerObject === 'object' &&
+        innerObject !== null
+      ) {
+        // Also search inside objects contained in gdjs.
+        for (var innerObjectProperty in innerObject) {
+          if (innerObject.hasOwnProperty(innerObjectProperty)) {
+            var innerInnerObject = innerObject[innerObjectProperty];
+            if (
+              innerInnerObject !== null &&
+              typeof innerInnerObject === 'function' &&
+              innerInnerObject.thisIsARuntimeBehaviorConstructor != undefined
+            ) {
+              gdjs.behaviorsTypes.put(
+                innerInnerObject.thisIsARuntimeBehaviorConstructor,
+                innerInnerObject
+              );
+            }
+          }
+        }
       }
     }
   }
 };
 
 /**
- * Register the callbacks that will be called when a runtimeScene is loaded/unloaded or
- * when an object is deleted from a scene.<br>
- * Callbacks must be called respectively gdjsCallbackRuntimeSceneLoaded, gdjsCallbackRuntimeSceneUnloaded
- * or gdjsCallbackObjectDeletedFromScene and be part of a (nested) child object of gdjs.<br>
+ * Register the callbacks that will be called when a runtimeScene is loaded/unloaded,
+ * paused/resumed or when an object is deleted from a scene.
+ *
+ * Callbacks must be called respectively `gdjsCallbackRuntimeSceneLoaded`, `gdjsCallbackRuntimeSceneUnloaded`,
+ * `callbacksRuntimeScenePaused`, `callbacksRuntimeSceneResumed` or `gdjsCallbackObjectDeletedFromScene`
+ * and be part of a (nested) child object of gdjs.
+ *
  * Arguments passed to the function are the runtimeScene and the object if applicable.
  */
 gdjs.registerGlobalCallbacks = function() {
   gdjs.callbacksRuntimeSceneLoaded = [];
   gdjs.callbacksRuntimeSceneUnloaded = [];
+  gdjs.callbacksRuntimeScenePaused = [];
+  gdjs.callbacksRuntimeSceneResumed = [];
   gdjs.callbacksObjectDeletedFromScene = [];
 
   var totalprop = 0;
@@ -165,6 +196,16 @@ gdjs.registerGlobalCallbacks = function() {
         if (obj[p].gdjsCallbackRuntimeSceneUnloaded !== undefined) {
           gdjs.callbacksRuntimeSceneUnloaded.push(
             obj[p].gdjsCallbackRuntimeSceneUnloaded
+          );
+        }
+        if (obj[p].gdjsCallbackRuntimeScenePaused !== undefined) {
+          gdjs.callbacksRuntimeScenePaused.push(
+            obj[p].gdjsCallbackRuntimeScenePaused
+          );
+        }
+        if (obj[p].gdjsCallbackRuntimeSceneResumed !== undefined) {
+          gdjs.callbacksRuntimeSceneResumed.push(
+            obj[p].gdjsCallbackRuntimeSceneResumed
           );
         }
         if (obj[p].gdjsCallbackObjectDeletedFromScene !== undefined) {

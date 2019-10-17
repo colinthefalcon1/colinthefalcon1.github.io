@@ -308,11 +308,6 @@ gdjs.RuntimeGamePixiRenderer.prototype.bindStandardEvents = function(manager, wi
             gdjs.InputManager.MOUSE_LEFT_BUTTON);
         return false;
     };
-    window.addEventListener('click', function(e) {
-        if (window.focus !== undefined) window.focus();
-        e.preventDefault();
-        return false;
-    }, false);
     renderer.view.oncontextmenu = function(event) {
         event.preventDefault();
         event.stopPropagation();

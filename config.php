@@ -1,5 +1,5 @@
 <?php
-   define('DB_SERVER', 'db4free.net');
+   define('DB_SERVER', 'db4free.net:3306/bigboymeatmarket');
    define('DB_USERNAME', 'tedcruz');
    define('DB_PASSWORD', 'cm!122203');
    define('DB_DATABASE', 'bigboymeatmarket');

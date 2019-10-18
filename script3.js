@@ -18,13 +18,6 @@ Room room = drone.subscribe(roomName, new RoomListener() {
     // implement the default RoomListener methods here
 }, new SubscribeOptions(5)); // ask for 50 messages from the history
 
-room.listenToHistoryEvents(new HistoryRoomListener() {
-    @Override
-    public void onHistoryMessage(Room room, Message message) {
-        System.out.println('Received a message from the past ' + message.getData().asText());
-    }
-});
-
 let members = [];
 
 drone.on('open', error => {

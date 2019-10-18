@@ -9,15 +9,6 @@ const drone = new ScaleDrone(CLIENT_ID, {
   },
 });
 
-const room = drone.subscribe('observable-room', {
-  historyCount: 5 // ask for the 5 most recent messages from the room's history
-});
-room.on('history_message', message => console.log(message));
-
-Room room = drone.subscribe(roomName, new RoomListener() {
-    // implement the default RoomListener methods here
-}, new SubscribeOptions(5)); // ask for 50 messages from the history
-
 let members = [];
 
 drone.on('open', error => {

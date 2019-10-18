@@ -1,44 +1,43 @@
-<?php
-    session_start();
-    echo isset($_SESSION['login']);
-    if(isset($_SESSION['login'])) {
-      header('LOCATION:index.php'); die();
+?php
+session_start();
+  mysql_connect('localhost','root','');
+    mysql_select_db('database name goes here');
+    $error_msg=NULL;
+    //log out code
+    if(isset($_REQUEST['logout'])){
+                unset($_SESSION['user']);
+                unset($_SESSION['username']);
+                unset($_SESSION['id']);
+                unset($_SESSION['role']);
+        session_destroy();
     }
-?>
-<!DOCTYPE html>
-<html>
-   <head>
-     <meta http-equiv='content-type' content='text/html;charset=utf-8' />
-     <title>Login</title>
-     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-   </head>
-<body>
-  <div class="container">
-    <h3 class="text-center">Login</h3>
-    <?php
-      if(isset($_POST['submit'])){
-        $username = $_POST['username']; $password = $_POST['password'];
-        if($username === 'tedcruz' && $password === 'jeff11'){
-          $_SESSION['login'] = true; header('LOCATION:admin.php'); die();
-        } {
-          echo "<div class='alert alert-danger'>Username and Password do not match.</div>";
-        }
+    //
 
-      }
-    ?>
-    <form action="" method="post">
-      <div class="form-group">
-        <label for="username">Username:</label>
-        <input type="text" class="form-control" id="username" name="username" required>
-      </div>
-      <div class="form-group">
-        <label for="pwd">Password:</label>
-        <input type="password" class="form-control" id="pwd" name="password" required>
-      </div>
-      <button type="submit" name="submit" class="btn btn-default">Login</button>
-    </form>
-  </div>
-</body>
-</html>
+    if(!empty($_POST['submit'])){
+        if(empty($_POST['username']))
+            $error_msg='please enter username';
+        if(empty($_POST['password']))
+            $error_msg='please enter password';
+        if(empty($error_msg)){
+            $sql="SELECT*FROM users WHERE username='%s' AND password='%s'";
+            $sql=sprintf($sql,$_POST['username'],md5($_POST['password']));
+            $records=mysql_query($sql) or die(mysql_error());
+
+            if($record_new=mysql_fetch_array($records)){
+
+                $_SESSION['user']=$record_new;
+                $_SESSION['id']=$record_new['id'];
+                $_SESSION['username']=$record_new['username'];
+                $_SESSION['role']=$record_new['role'];
+                header('location:index.php');
+                $error_msg='welcome';
+                exit();
+            }else{
+                $error_msg='invalid details';
+            }
+        }       
+    }
+
+?>
+
+// replace the location with whatever page u want the user to visit when he/she log in

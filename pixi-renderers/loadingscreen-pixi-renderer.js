@@ -18,7 +18,7 @@ gdjs.LoadingScreenPixiRenderer = function(runtimeGamePixiRenderer, loadingScreen
       align: 'center',
     });
     this._madeWithText.position.y = this._pixiRenderer.height / 2 - 130;
-    this._websiteText = new PIXI.Text('Created by Meghna Itty-Cherrio', {
+    this._websiteText = new PIXI.Text('Avery Reagan', {
       fontSize: '30px',
       fontFamily: 'Arial',
       fill: '#FFFFFF',

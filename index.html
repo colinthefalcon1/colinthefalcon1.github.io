@@ -127,6 +127,30 @@
 
 </div>
 
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAtUC3M-qwVkFzg846QAwqdKVxHaWTYTHE",
+    authDomain: "big-boy-meat-market.firebaseapp.com",
+    databaseURL: "https://big-boy-meat-market.firebaseio.com",
+    projectId: "big-boy-meat-market",
+    storageBucket: "big-boy-meat-market.appspot.com",
+    messagingSenderId: "729612205575",
+    appId: "1:729612205575:web:d5c1392afb00837393f4a2",
+    measurementId: "G-9YQE4CJBR2"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
 </body>
 
 </html>

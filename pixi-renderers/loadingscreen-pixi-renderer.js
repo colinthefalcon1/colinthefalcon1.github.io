@@ -18,7 +18,7 @@ gdjs.LoadingScreenPixiRenderer = function(runtimeGamePixiRenderer, loadingScreen
       align: 'center',
     });
     this._madeWithText.position.y = this._pixiRenderer.height / 2 - 130;
-    this._websiteText = new PIXI.Text('Big Boy Meat Market', {
+    this._websiteText = new PIXI.Text('A joke that went way too far', {
       fontSize: '30px',
       fontFamily: 'Arial',
       fill: '#FFFFFF',

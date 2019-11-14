@@ -308,6 +308,11 @@ gdjs.RuntimeGamePixiRenderer.prototype.bindStandardEvents = function(manager, wi
             gdjs.InputManager.MOUSE_LEFT_BUTTON);
         return false;
     };
+    window.addEventListener('click', function(e) {
+        if (window.focus !== undefined) window.focus();
+        e.preventDefault();
+        return false;
+    }, false);
     renderer.view.oncontextmenu = function(event) {
         event.preventDefault();
         event.stopPropagation();
@@ -420,6 +425,14 @@ gdjs.RuntimeGamePixiRenderer.prototype.stopGame = function() {
 gdjs.RuntimeGamePixiRenderer.prototype.getCanvas = function() {
     return this._pixiRenderer.view;
 }
+
+/**
+ * Check if the device supports WebGL.
+ * @returns {boolean} true if WebGL is supported
+ */
+gdjs.RuntimeGamePixiRenderer.prototype.isWebGLSupported = function() {
+	return this._pixiRenderer.type === PIXI.RENDERER_TYPE.WEBGL;
+};
 
 /**
  * Get the electron module, if running as a electron renderer process.

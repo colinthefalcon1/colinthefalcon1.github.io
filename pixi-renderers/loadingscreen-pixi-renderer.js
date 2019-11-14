@@ -1,5 +1,11 @@
 gdjs.LoadingScreenPixiRenderer = function(runtimeGamePixiRenderer, loadingScreenSetup) {
   this._pixiRenderer = runtimeGamePixiRenderer.getPIXIRenderer();
+  if (!this._pixiRenderer) {
+    // A PIXI Renderer can be missing during tests, when creating a runtime game
+    // without a canvas.
+    return;
+  }
+
   this._loadingScreen = new PIXI.Container();
 
   this._progressText = new PIXI.Text(' ', {
@@ -11,14 +17,14 @@ gdjs.LoadingScreenPixiRenderer = function(runtimeGamePixiRenderer, loadingScreen
   this._loadingScreen.addChild(this._progressText);
 
   if (loadingScreenSetup && loadingScreenSetup.showGDevelopSplash) {
-    this._madeWithText = new PIXI.Text('A joke that went way too far', {
+    this._madeWithText = new PIXI.Text('Made with', {
       fontSize: '30px',
       fontFamily: 'Arial',
       fill: '#FFFFFF',
       align: 'center',
     });
     this._madeWithText.position.y = this._pixiRenderer.height / 2 - 130;
-    this._websiteText = new PIXI.Text('Avery Reagan', {
+    this._websiteText = new PIXI.Text('gdevelop-app.com', {
       fontSize: '30px',
       fontFamily: 'Arial',
       fill: '#FFFFFF',
@@ -42,6 +48,10 @@ gdjs.LoadingScreenPixiRenderer = function(runtimeGamePixiRenderer, loadingScreen
 gdjs.LoadingScreenRenderer = gdjs.LoadingScreenPixiRenderer; //Register the class to let the engine use it.
 
 gdjs.LoadingScreenPixiRenderer.prototype.render = function(percent) {
+  if (!this._pixiRenderer) {
+    return;
+  }
+
   var screenBorder = 10;
 
   if (this._madeWithText) {

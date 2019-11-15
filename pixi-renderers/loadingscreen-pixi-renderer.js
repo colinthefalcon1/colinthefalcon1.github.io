@@ -17,14 +17,14 @@ gdjs.LoadingScreenPixiRenderer = function(runtimeGamePixiRenderer, loadingScreen
   this._loadingScreen.addChild(this._progressText);
 
   if (loadingScreenSetup && loadingScreenSetup.showGDevelopSplash) {
-    this._madeWithText = new PIXI.Text('A joke that went way too far', {
+    this._madeWithText = new PIXI.Text('Made with', {
       fontSize: '30px',
       fontFamily: 'Arial',
       fill: '#FFFFFF',
       align: 'center',
     });
     this._madeWithText.position.y = this._pixiRenderer.height / 2 - 130;
-    this._websiteText = new PIXI.Text('Avery "Ted Cruz" Reagan', {
+    this._websiteText = new PIXI.Text('gdevelop-app.com', {
       fontSize: '30px',
       fontFamily: 'Arial',
       fill: '#FFFFFF',

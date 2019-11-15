@@ -688,7 +688,7 @@ gdjs.NewSceneCode.GDPhilObjects1.createFrom(runtimeScene.getObjects("Phil"));
     gdjs.NewSceneCode.GDPhilObjects1[i].hide(false);
 }
 }{for(var i = 0, len = gdjs.NewSceneCode.GDPhilObjects1.length ;i < len;++i) {
-    gdjs.NewSceneCode.GDPhilObjects1[i].addPolarForce(0, 415, 0);
+    gdjs.NewSceneCode.GDPhilObjects1[i].addPolarForce(0, 410, 0);
 }
 }{gdjs.evtTools.sound.playSound(runtimeScene, "phol2.mp3", false, 100, 1);
 }}

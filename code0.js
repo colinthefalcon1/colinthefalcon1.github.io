@@ -865,7 +865,7 @@ gdjs.NewSceneCode.GDMrCleanObjects1.createFrom(runtimeScene.getObjects("MrClean"
     gdjs.NewSceneCode.GDMrCleanObjects1[i].hide(false);
 }
 }{for(var i = 0, len = gdjs.NewSceneCode.GDMrCleanObjects1.length ;i < len;++i) {
-    gdjs.NewSceneCode.GDMrCleanObjects1[i].addPolarForce(-(90), 200, 0);
+    gdjs.NewSceneCode.GDMrCleanObjects1[i].addPolarForce(-(90), 225, 0);
 }
 }}
 

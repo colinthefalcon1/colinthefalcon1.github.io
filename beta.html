@@ -53,8 +53,9 @@ function component(width, height, color, x, y) {
   this.height = height;
   this.speedX = 0;
   this.speedY = 0;
-  this.gravity = 0.07;
-  this.gravitySpeed = 2;
+  this.gravity = 0.1;
+  this.gravitySpeed = 0.05;
+  this.bounce = 0.4;
   this.x = x;
   this.y = y;
   this.update = function() {
@@ -72,7 +73,7 @@ function component(width, height, color, x, y) {
     var rockbottom = myGameArea.canvas.height - this.height;
     if (this.y > rockbottom) {
       this.y = rockbottom;
-      this.gravitySpeed = 1;
+      this.gravitySpeed = -(this.gravitySpeed * this.bounce);
     }
   }
 }
@@ -114,6 +115,6 @@ function accelerate(n) {
   myGamePiece.gravity = n;
 }
 </script>
-<input type="text" onkeyup="accelerate(-0.5)" onkeydown="accelerate(0.5)">
+<input type="text" onkeyup="accelerate(-0.5)" onkeydown="accelerate(-0.5)">
 </body>
 </html>

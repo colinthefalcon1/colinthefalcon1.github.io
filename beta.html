@@ -19,8 +19,8 @@ function startGame() {
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
-        this.canvas.width = window.innerWidth-35;
-        this.canvas.height = window.innerHeight-35;
+        this.canvas.width = window.innerWidth-20;
+        this.canvas.height = window.innerHeight-65;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
     }
@@ -28,7 +28,7 @@ var myGameArea = {
 
 </script>
 
-<p>We have created a game area! (or at least an empty canvas)</p>
+<center><p>Simple Boy Meat Market</p></center>
 
 </body>
 </html>

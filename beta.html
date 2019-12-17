@@ -3,6 +3,7 @@
 <head>
 <title>Beta Boy Meat Market</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="My Beta">
 <style>
 body {
     overflow: hidden;
@@ -85,6 +86,11 @@ function updateGameArea() {
   if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece.speedX = 5; }
   if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece.speedY = -5; }
   if (myGameArea.keys && myGameArea.keys[40]) {myGamePiece.speedY = 5; }
+  if (myGamePiece.x < myFloor.x + myFloor.width  && myGamePiece.x + myGamePiece.width  > myFloor.x &&
+		myGamePiece.y < myFloor.y + myFloor.height && myGamePiece.y + myGamePiece.height > myFloor.y) {
+  console.log(23)
+  // The objects are touching
+  }
   myGamePiece.newPos();
   myGamePiece.update();
 }

@@ -19,14 +19,14 @@ canvas {
 </head>
 <body onload="startGame()">
 <script>
-
 var myGamePiece;
+var myFloor;
 
 function startGame() {
-    myGameArea.start();
     myGamePiece = new component(30, 30, "red", 100, 500);
+    myFloor = new component(10, 200, "green", 300, 120);
+    myGameArea.start();
 }
-
 var myGameArea = {
   canvas : document.createElement("canvas"),
   start : function() {
@@ -47,7 +47,6 @@ var myGameArea = {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
   }
 }
-
 function component(width, height, color, x, y) {
   this.width = width;
   this.height = height;
@@ -77,9 +76,9 @@ function component(width, height, color, x, y) {
     }
   }
 }
-
 function updateGameArea() {
   myGameArea.clear();
+  myFloor.update();
   myGamePiece.speedX = 0;
   myGamePiece.speedY = 0;
   if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece.speedX = -5; }
@@ -89,28 +88,22 @@ function updateGameArea() {
   myGamePiece.newPos();
   myGamePiece.update();
 }
-
 function moveup() {
   myGamePiece.speedY -= 1;
 }
-
 function movedown() {
   myGamePiece.speedY += 1;
 }
-
 function moveleft() {
   myGamePiece.speedX -= 1;
 }
-
 function moveright() {
   myGamePiece.speedX += 1;
 }
-
 function stopMove() {
   myGamePiece.speedX = 0;
   myGamePiece.speedY = 0;
 }
-
 function accelerate(n) {
   myGamePiece.gravity = n;
 }

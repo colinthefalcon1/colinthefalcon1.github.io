@@ -22,7 +22,6 @@ canvas {
 <script>
 var myGamePiece;
 var myFloor;
-
 function startGame() {
     myGamePiece = new component(30, 30, "red", 100, 400);
     myFloor = new component(200, 10, "green", 250, 550);
@@ -49,12 +48,10 @@ var myGameArea = {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
   }
 }
-
 function everyinterval(n) {
   if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
   return false;
 }
-
 function component(width, height, color, x, y) {
   this.width = width;
   this.height = height;
@@ -102,10 +99,8 @@ function component(width, height, color, x, y) {
     }
   }
 }
-
 function updateGameArea() {
   myGameArea.clear();
-  myFloor.x += -1;
   myFloor.update();
   myGamePiece.speedX = 0;
   myGamePiece.speedY = 0;

@@ -69,6 +69,7 @@ function component(width, height, color, x, y) {
     this.y += this.speedY + this.gravitySpeed;
     this.hitBottom();
     this.hitmyFloor();
+    this.hitmyFloorBottom();
   }
   this.hitBottom = function() {
     var rockbottom = myGameArea.canvas.height - this.height;
@@ -80,11 +81,18 @@ function component(width, height, color, x, y) {
   this.hitmyFloor = function() {
 //    if (myGamePiece.x < myFloor.x + myFloor.width && myGamePiece.x + myGamePiece.width  > myFloor.x &&
 //      myGamePiece.y < myFloor.y + myFloor.height && myGamePiece.y + myGamePiece.height > myFloor.y) {
-    if (((myGamePiece.y + myGamePiece.height == myFloor.y + myFloor.height) || (myGamePiece.y + myGamePiece.height >= myFloor.y))
-    && ((myGamePiece.x >= myFloor.x) && (myGamePiece.x <= (myFloor.x + myFloor.width)))) {
+    if (((myGamePiece.y + myGamePiece.height <= myFloor.y + myFloor.height) && (myGamePiece.y + myGamePiece.height >= myFloor.y))
+    && ((myGamePiece.x < myFloor.x + myFloor.width && myGamePiece.x + myGamePiece.width  > myFloor.x))
+    && (1 == 1)) {
       //The cube is on top of the rectangle
       this.y = (myFloor.y - myGamePiece.height);
       this.gravitySpeed = -(this.gravitySpeed * this.bounce);
+    }
+  }
+    this.hitmyFloorBottom = function() {
+      if (((myGamePiece.y + myGamePiece.height > myFloor.y - myFloor.height) && (myGamePiece.y < myFloor.y))
+      && ((myGamePiece.x > myFloor.x) && (myGamePiece.x < (myFloor.x + myFloor.width)))) {
+        //The cube is on bottom of the rectangle
     }
   }
 }

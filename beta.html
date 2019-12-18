@@ -68,6 +68,7 @@ function component(width, height, color, x, y) {
     this.x += this.speedX;
     this.y += this.speedY + this.gravitySpeed;
     this.hitBottom();
+    this.hitmyFloor();
   }
   this.hitBottom = function() {
     var rockbottom = myGameArea.canvas.height - this.height;
@@ -76,27 +77,32 @@ function component(width, height, color, x, y) {
       this.gravitySpeed = -(this.gravitySpeed * this.bounce);
     }
   }
+  this.hitmyFloor = function() {
+    var touch = 1
+    if (myGamePiece.x < myFloor.x + myFloor.width && myGamePiece.x + myGamePiece.width  > myFloor.x &&
+      myGamePiece.y < myFloor.y + myFloor.height && myGamePiece.y + myGamePiece.height > myFloor.y) {
+    touch = 2
+    } else {
+    touch = 1
+    }
+    if ((myGamePiece.y <= (myFloor.y + 10)) && (myGamePiece.y >= myFloor.y) && (touch == 2)) {
+      //The cube is touching
+      console.log(3);
+      this.y = myFloor.y;
+      this.gravitySpeed = -(this.gravitySpeed * this.bounce);
+    }
+  }
 }
+
 function updateGameArea() {
   myGameArea.clear();
   myFloor.update();
   myGamePiece.speedX = 0;
   myGamePiece.speedY = 0;
-  if (myGamePiece.y < (myGameArea.canvas.height / 2)) {
-    console.log(1)
-  }
-  if (myGamePiece.y < (myGameArea.canvas.height)) {
-    // just to create exponential falling
-    accelerate(0.25)
-  }
   if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece.speedX = -5; }
   if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece.speedX = 5; }
   if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece.speedY = -5; }
   if (myGameArea.keys && myGameArea.keys[40]) {myGamePiece.speedY = 5; }
-  if (myGamePiece.x < myFloor.x + myFloor.width  && myGamePiece.x + myGamePiece.width  > myFloor.x &&
-		myGamePiece.y < myFloor.y + myFloor.height && myGamePiece.y + myGamePiece.height > myFloor.y) {
-  // The objects are touching
-  }
   myGamePiece.newPos();
   myGamePiece.update();
 }

@@ -80,10 +80,12 @@ function component(width, height, color, x, y) {
   this.hitmyFloor = function() {
 //    if (myGamePiece.x < myFloor.x + myFloor.width && myGamePiece.x + myGamePiece.width  > myFloor.x &&
 //      myGamePiece.y < myFloor.y + myFloor.height && myGamePiece.y + myGamePiece.height > myFloor.y) {
-    if ((myGamePiece.y + myGamePiece.height <= myFloor.y + myFloor.height) && (myGamePiece.y + myGamePiece.height >= myFloor.y)) {
+    if ((myGamePiece.y + myGamePiece.height <= myFloor.y + myFloor.height)
+    && (myGamePiece.y + myGamePiece.height >= myFloor.y)
+    && ((myGamePiece.x >= myFloor.x) && (myGamePiece.x <= (myFloor.x + myFloor.width)))) {
       //The cube is touching
       console.log(3);
-      this.y = myFloor.y;
+      this.y = (myFloor.y + myFloor.height);
       this.gravitySpeed = -(this.gravitySpeed * this.bounce);
     }
   }

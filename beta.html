@@ -24,7 +24,7 @@ var myGamePiece;
 var myFloor;
 
 function startGame() {
-    myGamePiece = new component(30, 30, "red", 100, 500);
+    myGamePiece = new component(30, 30, "red", 100, 400);
     myFloor = new component(200, 10, "green", 250, 550);
     myGameArea.start();
 }
@@ -35,7 +35,7 @@ var myGameArea = {
     this.canvas.height = window.innerHeight;
     this.context = this.canvas.getContext("2d");
     document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-    this.interval = setInterval(updateGameArea, 20);
+    this.interval = setInterval(updateGameArea, 10);
     window.addEventListener('keydown', function (e) {
       myGameArea.keys = (myGameArea.keys || []);
       myGameArea.keys[e.keyCode] = true;
@@ -78,14 +78,9 @@ function component(width, height, color, x, y) {
     }
   }
   this.hitmyFloor = function() {
-    var touch = 1
-    if (myGamePiece.x < myFloor.x + myFloor.width && myGamePiece.x + myGamePiece.width  > myFloor.x &&
-      myGamePiece.y < myFloor.y + myFloor.height && myGamePiece.y + myGamePiece.height > myFloor.y) {
-    touch = 2
-    } else {
-    touch = 1
-    }
-    if ((myGamePiece.y <= (myFloor.y + 10)) && (myGamePiece.y >= myFloor.y) && (touch == 2)) {
+//    if (myGamePiece.x < myFloor.x + myFloor.width && myGamePiece.x + myGamePiece.width  > myFloor.x &&
+//      myGamePiece.y < myFloor.y + myFloor.height && myGamePiece.y + myGamePiece.height > myFloor.y) {
+    if ((myGamePiece.y + myGamePiece.height <= myFloor.y + myFloor.height) && (myGamePiece.y + myGamePiece.height >= myFloor.y)) {
       //The cube is touching
       console.log(3);
       this.y = myFloor.y;

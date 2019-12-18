@@ -83,7 +83,7 @@ function component(width, height, color, x, y) {
     if ((myGamePiece.y + myGamePiece.height <= myFloor.y + myFloor.height)
     && (myGamePiece.y + myGamePiece.height >= myFloor.y)
     && ((myGamePiece.x >= myFloor.x) && (myGamePiece.x <= (myFloor.x + myFloor.width)))) {
-      //The cube is touching
+      //The cube is on top of the
       console.log(3);
       this.y = (myFloor.y + myFloor.height);
       this.gravitySpeed = -(this.gravitySpeed * this.bounce);
@@ -123,6 +123,6 @@ function accelerate(n) {
   myGamePiece.gravity = n;
 }
 </script>
-<input type="text" onkeyup="accelerate(-0.3)" onkeydown="accelerate(-0.3)">
+<input type="hidden" onkeyup="accelerate(-0.3)" onkeydown="accelerate(-0.3)">
 </body>
 </html>

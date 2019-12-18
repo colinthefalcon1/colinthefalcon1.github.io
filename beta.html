@@ -25,7 +25,7 @@ var myFloor;
 
 function startGame() {
     myGamePiece = new component(30, 30, "red", 100, 500);
-    myFloor = new component(10, 200, "green", 300, 300);
+    myFloor = new component(200, 10, "green", 250, 550);
     myGameArea.start();
 }
 var myGameArea = {
@@ -82,14 +82,19 @@ function updateGameArea() {
   myFloor.update();
   myGamePiece.speedX = 0;
   myGamePiece.speedY = 0;
+  if (myGamePiece.y < (myGameArea.canvas.height / 2)) {
+    console.log(1)
+  }
+  if (myGamePiece.y < (myGameArea.canvas.height)) {
+    // just to create exponential falling
+    accelerate(0.25)
+  }
   if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece.speedX = -5; }
   if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece.speedX = 5; }
   if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece.speedY = -5; }
   if (myGameArea.keys && myGameArea.keys[40]) {myGamePiece.speedY = 5; }
   if (myGamePiece.x < myFloor.x + myFloor.width  && myGamePiece.x + myGamePiece.width  > myFloor.x &&
 		myGamePiece.y < myFloor.y + myFloor.height && myGamePiece.y + myGamePiece.height > myFloor.y) {
-  this.gravitySpeed = -(this.gravitySpeed * this.bounce);
-  this.y = myGamePiece.y = myFloor.y
   // The objects are touching
   }
   myGamePiece.newPos();
@@ -115,6 +120,6 @@ function accelerate(n) {
   myGamePiece.gravity = n;
 }
 </script>
-<input type="text" onkeyup="accelerate(-0.5)" onkeydown="accelerate(-0.5)">
+<input type="text" onkeyup="accelerate(-0.3)" onkeydown="accelerate(-0.3)">
 </body>
 </html>

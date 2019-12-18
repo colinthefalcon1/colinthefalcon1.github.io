@@ -105,6 +105,7 @@ function component(width, height, color, x, y) {
 
 function updateGameArea() {
   myGameArea.clear();
+  myFloor.x += -1;
   myFloor.update();
   myGamePiece.speedX = 0;
   myGamePiece.speedY = 0;

@@ -41,17 +41,10 @@ var myGameArea = {
       myGameArea.keys[e.keyCode] = true;
     })
     window.addEventListener('keyup', function (e) {
-      myGameArea.keys[e.keyCode] = false;
-    })
-  },
-  clear : function(){
-    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      myGameArea.keys[e.keyCode] = false; })
   }
 }
-function everyinterval(n) {
-  if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
-  return false;
-}
+
 function component(width, height, color, x, y) {
   this.width = width;
   this.height = height;

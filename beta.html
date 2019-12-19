@@ -22,9 +22,12 @@ canvas {
 <script>
 var myGamePiece;
 var myFloor;
+var floorspeed;
+
 function startGame() {
     myGamePiece = new component(30, 30, "red", 100, 400);
     myFloor = new component(200, 10, "green", 250, 550);
+    floorspeed = -2;
     myGameArea.start();
 }
 var myGameArea = {
@@ -80,8 +83,8 @@ function component(width, height, color, x, y) {
     }
   }
   this.hitmyFloor = function() {
-//    if (myGamePiece.x < myFloor.x + myFloor.width && myGamePiece.x + myGamePiece.width  > myFloor.x &&
-//      myGamePiece.y < myFloor.y + myFloor.height && myGamePiece.y + myGamePiece.height > myFloor.y) {
+  //    if (myGamePiece.x < myFloor.x + myFloor.width && myGamePiece.x + myGamePiece.width  > myFloor.x &&
+  //      myGamePiece.y < myFloor.y + myFloor.height && myGamePiece.y + myGamePiece.height > myFloor.y) {
     if (((myGamePiece.y + myGamePiece.height <= myFloor.y + myFloor.height) && (myGamePiece.y + myGamePiece.height >= myFloor.y))
     && ((myGamePiece.x < myFloor.x + myFloor.width && myGamePiece.x + myGamePiece.width  > myFloor.x))) {
       //The cube is on top of the rectangle
@@ -90,17 +93,21 @@ function component(width, height, color, x, y) {
     }
   }
     this.hitmyFloorBottom = function() {
-      if (((myGamePiece.y + myGamePiece.height > myFloor.y - myFloor.height) && (myGamePiece.y < myFloor.y))
+      if ((((myGamePiece.y + myGamePiece.height) > (myFloor.y - myFloor.height)) && (myGamePiece.y < myFloor.y))
       && ((myGamePiece.x > myFloor.x) && (myGamePiece.x < (myFloor.x + myFloor.width)))) {
-        //The cube is on bottom of the rectangle
+        myGamePiece.speedX += 1;
     }
   }
 }
 function updateGameArea() {
   myGameArea.clear();
+  myFloor.x += floorspeed;
   myFloor.update();
   myGamePiece.speedX = 0;
   myGamePiece.speedY = 0;
+  if ((myFloor.x < 20) || (myFloor.x > 250)) {
+    floorspeed = -(floorspeed);
+  }
   if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece.speedX = -5; }
   if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece.speedX = 5; }
   if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece.speedY = -5; }

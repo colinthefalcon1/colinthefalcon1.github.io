@@ -17,7 +17,7 @@ gdjs.LoadingScreenPixiRenderer = function(runtimeGamePixiRenderer, loadingScreen
   this._loadingScreen.addChild(this._progressText);
 
   if (loadingScreenSetup && loadingScreenSetup.showGDevelopSplash) {
-    this._madeWithText = new PIXI.Text('A joke that went way too far', {
+    this._madeWithText = new PIXI.Text('stuff', {
       fontSize: '30px',
       fontFamily: 'Arial',
       fill: '#FFFFFF',

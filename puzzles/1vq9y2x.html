@@ -34,14 +34,23 @@
         }
     function Check() {
         if ((x + y) == clicks) {
-            var str = "Correct";
-            var result = str.fontcolor("green");
-            document.getElementById("CheckCount").innerHTML = result;
+            Green();
             score = 1;
             NumberGen();
         } else {
             document.getElementById("CheckCount").innerHTML = "Incorrect";
         }
+    }
+    function Green() {
+        var str = "Correct";
+        var result = str.fontcolor("green");
+        document.getElementById("CheckCount").innerHTML = result;
+        setTimeout(Black, 1000)
+    }
+    function Black() {
+        var str = "Incorrect";
+        var result = str.fontcolor("black");
+        document.getElementById("CheckCount").innerHTML = result;
     }
 </script>
 

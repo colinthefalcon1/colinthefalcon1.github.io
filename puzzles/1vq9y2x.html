@@ -15,6 +15,7 @@
 <script type="text/javascript">
     var clicks = 0;
     var score = 0;
+    var answer = x + y;
     function updateClickCount() {
         document.getElementById("ClickCount").innerHTML =
         "Answer: " + clicks;
@@ -24,10 +25,10 @@
         "Score: " + score;
     }
     function NumberGen() {
-    var x = Math.floor((Math.random() * 10) + 1);
-    var y = Math.floor((Math.random() * 10) + 1);
-    document.getElementById("a").innerHTML =
-    "What is " + x + " + " + y + "?";
+        var x = Math.floor((Math.random() * 10) + 1);
+        var y = Math.floor((Math.random() * 10) + 1);
+        document.getElementById("a").innerHTML =
+        "What is " + x + " + " + y + "?";
     }
 </script>
 

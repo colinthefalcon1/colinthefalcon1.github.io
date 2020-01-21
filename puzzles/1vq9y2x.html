@@ -30,9 +30,9 @@
         setTimeout(Check, 750);
         }
     function Check() {
+        document.getElementById("ScoreCount").innerHTML =
+        "Score: " + score;
         if ((x + y) == clicks) {
-            document.getElementById("ScoreCount").innerHTML =
-            "Score: " + score;
             Green();
             NumberGen();
         } else {

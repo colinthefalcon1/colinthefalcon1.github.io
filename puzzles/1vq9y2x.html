@@ -31,12 +31,11 @@
     }
     function Check() {
         if ((x + y) == clicks) {
-            response = "Correct";
+            document.getElementById("CheckCount").innerHTML = "Correct";
             score++;
         } else {
-            response = "Incorrect";
+            document.getElementById("CheckCount").innerHTML = "Incorrect";
         }
-        document.getElementById("CheckCount").innerHTML = response;
     }
 </script>
 

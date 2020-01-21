@@ -15,7 +15,6 @@
 <script type="text/javascript">
     var clicks = 0;
     var score = 0;
-    var answer = x + y;
     function updateClickCount() {
         document.getElementById("ClickCount").innerHTML =
         "My Answer: " + clicks;
@@ -31,7 +30,7 @@
         "What is " + x + " + " + y + "?";
     }
     function Check() {
-        if (answer == clicks) {
+        if ((x + y) == clicks) {
             response = "Correct";
             score++;
         } else {

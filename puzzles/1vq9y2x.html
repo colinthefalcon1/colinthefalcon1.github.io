@@ -30,8 +30,6 @@
         setTimeout(Check, 750);
         }
     function Check() {
-        document.getElementById("ScoreCount").innerHTML =
-        "Score: " + score;
         if ((x + y) == clicks) {
             score = (score + 1);
             Green();
@@ -39,6 +37,8 @@
         } else {
             document.getElementById("CheckCount").innerHTML = "Incorrect";
         }
+        document.getElementById("ScoreCount").innerHTML =
+        "Score: " + score;
     }
     function Green() {
         var str = "Correct";

@@ -30,6 +30,10 @@
         document.getElementById("a").innerHTML =
         "What is " + x + " + " + y + "?";
     }
+    function Check() {
+        document.getElementById("CheckCount").innerHTML =
+        "Score: " + score;
+    }
 </script>
 
 <body onload="NumberGen();updateScoreCount();updateClickCount();">
@@ -47,6 +51,10 @@
 </div>
 
 <button type="button" onClick="NumberGen();" id="push">New</button>
+    
+<button type="button" onClick="Check();" id="push">Check</button>
+
+<div id="CheckCount"></div>
 
 </body>
 </html>

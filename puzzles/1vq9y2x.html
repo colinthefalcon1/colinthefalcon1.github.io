@@ -17,6 +17,7 @@
     var score = 0;
     var x = 0;
     var y = 0;
+    var level = 1;
     function updateClickCount() {
         document.getElementById("ClickCount").innerHTML =
         "My Answer: " + clicks;
@@ -32,11 +33,7 @@
     function Check() {
         if ((x + y) == clicks) {
             score = (score + 1);
-            if (score > 10) {
-                document.getElementById("head").innerHTML = "Level 2";
-            } else {
-                document.getElementById("head").innerHTML = "Level 1";
-            }
+            UpdateLevel();
             Green();
             NumberGen();
         } else {
@@ -50,6 +47,13 @@
         var result = str.fontcolor("green");
         document.getElementById("CheckCount").innerHTML = result;
     }
+    function UpdateLevel() {
+        if (score > 10) {
+            level = 2;
+        } else {
+            level = 1;
+        }
+        document.getElementById("head").innerHTML = "Level " + level;
 </script>
     
 <body onload="NumberGen();updateClickCount();Check();">

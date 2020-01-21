@@ -18,17 +18,25 @@
 <script type="text/javascript">
     var clicks = 0;
     var score = 0;
+    var a = 
     function updateClickCount() {
         document.getElementById("ClickCount").innerHTML = clicks;
     }
      function updateScoreCount() {
         document.getElementById("ScoreCount").innerHTML = score;
     }
+    function NumberGen() {
+    var x = Math.floor((Math.random() * 10) + 1);
+    document.getElementById("a").innerHTML = x;
+    }
 </script>
   
 <body>
+ 
+<body onload="updateClickCount();">
   
-<p>What is 8 - 4?</p>
+<p>What is 8 + 4?</p>
+<p>id="a"</p>
 
 <div class="game-object">
     <button type="button" onClick="clicks--;updateClickCount();" id="push">-1</button>

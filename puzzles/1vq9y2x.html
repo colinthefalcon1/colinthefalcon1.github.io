@@ -37,12 +37,12 @@
             UpdateLevel();
             Green();
             NumberGen();
-            document.getElementById("ScoreCount").innerHTML =
-            "Score: " + score + "/10";
         } else {
             document.getElementById("CheckCount").innerHTML = "Incorrect";
         }
-        }
+        document.getElementById("ScoreCount").innerHTML =
+        "Score: " + score + "/10";
+    }
         function Green() {
             var str = "Correct";
             var result = str.fontcolor("green");

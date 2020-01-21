@@ -49,9 +49,10 @@
     }
     function UpdateLevel() {
         if (score > 10) {
-            level = 2;
+            level = (level + 1);
+            score = 0;
         } else {
-            level = 1;
+            level = level;
         }
         document.getElementById("head").innerHTML = "Level " + level;
         }

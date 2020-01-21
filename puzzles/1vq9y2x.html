@@ -21,21 +21,18 @@
         document.getElementById("ClickCount").innerHTML =
         "My Answer: " + clicks;
     }
-     function updateScoreCount() {
-        document.getElementById("ScoreCount").innerHTML =
-        "Score: " + score;
-    }
     function NumberGen() {
         x = Math.floor((Math.random() * 10) + 1);
         y = Math.floor((Math.random() * 10) + 1);
         document.getElementById("a").innerHTML =
         "What is " + x + " + " + y + "?";
-        score++;
         updateClickCount();
         setTimeout(Check, 750);
         }
     function Check() {
         if ((x + y) == clicks) {
+            document.getElementById("ScoreCount").innerHTML =
+            "Score: " + score;
             Green();
             NumberGen();
         } else {
@@ -49,7 +46,7 @@
     }
 </script>
 
-<body onload="NumberGen();updateScoreCount();updateClickCount();Check();">
+<body onload="NumberGen();updateClickCount();Check();">
 
 <p id="a"></p>
 

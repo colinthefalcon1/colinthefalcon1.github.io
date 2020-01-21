@@ -56,6 +56,14 @@
         }
         document.getElementById("head").innerHTML = "Level " + level;
     }
+    function refreshData() {
+        x = 5;  // 5 Seconds
+        // Do your thing here
+        document.getElementById("Timer").innerHTML = "1";
+        setTimeout(refreshData, x*1000);
+    }
+
+    refreshData(); // execute function
 </script>
     
 <body onload="NumberGen();updateClickCount();Check();UpdateLevel();">
@@ -73,5 +81,6 @@
 <div id="CheckCount"></div>
 <br>
 <div id="ScoreCount"></div>
+<div id="Timer"></div>
 </body>
 </html>

@@ -34,7 +34,9 @@
         }
     function Check() {
         if ((x + y) == clicks) {
-            document.getElementById("CheckCount").innerHTML = "Correct";
+            var str = "Correct";
+            var result = str.fontcolor("green");
+            document.getElementById("CheckCount").innerHTML = result;
             score = 1;
             NumberGen();
         } else {

@@ -41,14 +41,14 @@
     }
 </script>
 
-<body onload="NumberGen();updateScoreCount();updateClickCount();">
+<body onload="NumberGen();updateScoreCount();updateClickCount();Check();">
 
 <p id="a"></p>
 
 <div class="game-object">
     <div id="ClickCount"></div>
-    <button type="button" onClick="clicks--;updateClickCount();" id="push">-1</button>
-    <button type="button" onClick="clicks++;updateClickCount();" id="push">+1</button>
+    <button type="button" onClick="clicks--;updateClickCount();Check();" id="push">-1</button>
+    <button type="button" onClick="clicks++;updateClickCount();Check();" id="push">+1</button>
 </div>
 
 <div id="CheckCount"></div>

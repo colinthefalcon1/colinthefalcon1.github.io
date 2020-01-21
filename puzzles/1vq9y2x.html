@@ -30,12 +30,13 @@
         y = Math.floor((Math.random() * 10) + 1);
         document.getElementById("a").innerHTML =
         "What is " + x + " + " + y + "?";
-        setTimeout(Check, 750)
+        score++;
+        updateClickCount();
+        setTimeout(Check, 750);
         }
     function Check() {
         if ((x + y) == clicks) {
             Green();
-            score = 1;
             NumberGen();
         } else {
             document.getElementById("CheckCount").innerHTML = "Incorrect";

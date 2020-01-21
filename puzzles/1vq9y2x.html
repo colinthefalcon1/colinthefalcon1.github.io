@@ -19,10 +19,10 @@
     var clicks = 0;
     var score = 0;
     function updateclickCount() {
-        document.getElementById("clickCount").innerHTML = clicks;
+        document.getElementById("ClickCount").innerHTML = clicks;
     }
      function updatescoreCount() {
-        document.getElementById("scoreCount").innerHTML = score;
+        document.getElementById("ScoreCount").innerHTML = score;
     }
 </script>
   
@@ -33,11 +33,11 @@
 <div class="game-object">
     <button type="button" onClick="clicks--;updateClickCount();" id="push">-1</button>
     <button type="button" onClick="clicks++;updateClickCount();" id="push">+1</button>
-    <div id="clickCount"></div>
+    <div id="ClickCount"></div>
 </div>
 <p>Score: </p>
 <div class="score>
-  <div id="scoreCount"></div>
+  <div id="ScoreCount"></div>
 </div>
 </body>
 </html>

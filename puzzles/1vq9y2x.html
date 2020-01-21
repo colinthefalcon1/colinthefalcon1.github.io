@@ -32,6 +32,10 @@
     function Check() {
         if ((x + y) == clicks) {
             score = (score + 1);
+            if (score > 10) {
+                document.getElementById("head").innerHTML = "Level 2";
+            } else {
+                document.getElementById("head").innerHTML = "Level 1";
             Green();
             NumberGen();
         } else {
@@ -46,6 +50,8 @@
         document.getElementById("CheckCount").innerHTML = result;
     }
 </script>
+    
+<p id="head"></p>
 
 <body onload="NumberGen();updateClickCount();Check();">
 

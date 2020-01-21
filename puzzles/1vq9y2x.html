@@ -14,23 +14,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
 </head>
-  
-<script>
-  var a=0;
-</script>
-
 <body>
-<p>what is 8 - 4?</p>
-
-<button type="button" onclick="alert('ok')">1</button>
-
-<button type="button" onclick="alert('ok')">2</button>
   
-<button type="button" onclick="alert('wow')">+</button>
- 
-<script type="text/javascript">
-  document.write(a)
-</script>
+<p>What is 8 - 4?</p>
+
+<div class="game-object">
+    <script type="text/javascript">
+        var clicks = 0;
+        function updateClickCount() {
+            document.getElementById("clickCount").innerHTML = clicks;
+        }
+    </script>
+    <button type="button" onClick="clicks++;updateClickCount();" id="push">NO.</button>
+    <div id="clickCount"></div>
+</div>
   
 </body>
 </html>

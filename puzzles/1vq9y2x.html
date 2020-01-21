@@ -28,8 +28,6 @@
         var y = Math.floor((Math.random() * 10) + 1);
         document.getElementById("a").innerHTML =
         "What is " + x + " + " + y + "?";
-    }
-    function Check() {
         if ((x + y) == clicks) {
             document.getElementById("CheckCount").innerHTML = "Correct";
             score++;
@@ -53,7 +51,7 @@
 <br>
 <div id="ScoreCount"></div>
     
-<button type="button" onClick="Check();" id="push">Check</button>
+<button type="button" onClick="NumberGen();" id="push">New</button>
 
 </body>
 </html>

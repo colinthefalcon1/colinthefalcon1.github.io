@@ -33,12 +33,6 @@
         setTimeout(Check, 750);
         }
     function Check() {
-        if level >= 2 {
-            window.setInterval(function(){
-                countdown = (countdown - 1)
-                document.getElementById("TimerCount").innerHTML = countdown;
-            }, 100);
-        }
         if ((x + y) == clicks) {
             score = (score + 1);
             UpdateLevel();
@@ -49,6 +43,12 @@
         }
         document.getElementById("ScoreCount").innerHTML =
         "Score: " + score + "/10";
+        if level >= 2 {
+            window.setInterval(function(){
+            countdown = (countdown - 1)
+            document.getElementById("TimerCount").innerHTML = countdown;
+        }, 100);
+    }
     }
     function Green() {
         var str = "Correct";

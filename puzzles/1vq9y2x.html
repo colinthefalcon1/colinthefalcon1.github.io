@@ -47,13 +47,15 @@
 
 <div class="game-object">
     <div id="ClickCount"></div>
-    <button type="button" onClick="clicks--;updateClickCount();Check();" id="push">-1</button>
-    <button type="button" onClick="clicks++;updateClickCount();Check();" id="push">+1</button>
+    <button type="button" onClick="clicks--;updateClickCount();" id="push">-1</button>
+    <button type="button" onClick="clicks++;updateClickCount();" id="push">+1</button>
 </div>
 
 <div id="CheckCount"></div>
 <br>
 <div id="ScoreCount"></div>
+    
+<button type="button" onClick="Check();" id="push">Check</button>
 
 </body>
 </html>

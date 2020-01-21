@@ -13,9 +13,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
 </head>
+<script>
+    var clicks = 0;
+    function UpdateClickCount() {
+        document.getElementById("ClickCount").innerHTML =
+        "Clicks: " + clicks;
+    }
+</script>
 
 <body>
-    <button type="button" onclick="alert('ok')">im a button</button>
+    <div id="ClickCount"></div>
+    <button type="button" onclick="Clicks++;UpdateClickCount();">+1 Clicks</button>
 </body>
 
 </html>

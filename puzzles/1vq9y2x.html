@@ -18,11 +18,13 @@
     var x = 0;
     var y = 0;
     var level = 1;
+    var countdown = 100;
     function updateClickCount() {
         document.getElementById("ClickCount").innerHTML =
         "My Answer: " + clicks;
     }
     function NumberGen() {
+        countdown = 100;
         x = Math.floor((Math.random() * 10) + 1);
         y = Math.floor((Math.random() * 10) + 1);
         document.getElementById("a").innerHTML =
@@ -31,6 +33,14 @@
         setTimeout(Check, 750);
         }
     function Check() {
+        if level >= 2 {
+            countdown = 100;
+            setTimeout(Check, 10);
+            document.getElementById("TimerCount").innerHTML = countdown;
+            if countdown <= 0 {
+                NumberGen();
+            }
+        }
         if ((x + y) == clicks) {
             score = (score + 1);
             UpdateLevel();
@@ -56,6 +66,9 @@
         }
         document.getElementById("head").innerHTML = "Level " + level;
         }
+    function Timer() {
+        countdown = (countdown - 1)
+    }
 </script>
     
 <body onload="NumberGen();updateClickCount();Check();UpdateLevel();">
@@ -73,6 +86,7 @@
 <div id="CheckCount"></div>
 <br>
 <div id="ScoreCount"></div>
-
+<br>
+<div id="TimerCount"></div>
 </body>
 </html>

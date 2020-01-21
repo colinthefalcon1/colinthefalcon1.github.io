@@ -33,10 +33,11 @@
         if ((x + y) == clicks) {
             response = "Correct";
             score++;
+            document.getElementById("CheckCount").innerHTML = response;
         } else {
             response = "Incorrect";
+            document.getElementById("CheckCount").innerHTML = response;
         }
-        document.getElementById("CheckCount").innerHTML = response;
     }
 </script>
 

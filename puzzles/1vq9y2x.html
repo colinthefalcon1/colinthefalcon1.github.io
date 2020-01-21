@@ -32,13 +32,12 @@
     }
     function Check() {
         if (answer === clicks) {
-            document.getElementById("CheckCount").innerHTML =
-            "Correct";
+            check = "Correct";
             score++;
         } else {
-            document.getElementById("CheckCount").innerHTML =
-            "Incorrect"; 
+            check = "Incorrect";
         }
+        document.getElementById("CheckCount").innerHTML = check;
     }
 </script>
 

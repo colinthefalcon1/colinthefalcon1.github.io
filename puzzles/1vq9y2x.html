@@ -34,9 +34,8 @@
         }
     function Check() {
         if level >= 2 {
-            countdown = 100;
-            setTimeout(Check, 10);
             document.getElementById("TimerCount").innerHTML = countdown;
+            setTimeout(Timer, 10);
             if countdown <= 0 {
                 NumberGen();
             }

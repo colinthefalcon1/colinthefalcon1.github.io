@@ -34,11 +34,10 @@
         }
     function Check() {
         if level >= 2 {
-            document.getElementById("TimerCount").innerHTML = countdown;
-            setTimeout(Timer, 10);
-            if countdown <= 0 {
-                NumberGen();
-            }
+            window.setInterval(function(){
+                countdown = (countdown - 1)
+                document.getElementById("TimerCount").innerHTML = countdown;
+            }, 100);
         }
         if ((x + y) == clicks) {
             score = (score + 1);
@@ -65,9 +64,6 @@
         }
         document.getElementById("head").innerHTML = "Level " + level;
         }
-    function Timer() {
-        countdown = (countdown - 1);
-    }
 </script>
     
 <body onload="NumberGen();updateClickCount();Check();UpdateLevel();">

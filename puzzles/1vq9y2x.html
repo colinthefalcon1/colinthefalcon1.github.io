@@ -43,20 +43,20 @@
         document.getElementById("ScoreCount").innerHTML =
         "Score: " + score + "/10";
     }
-        function Green() {
-            var str = "Correct";
-            var result = str.fontcolor("green");
-            document.getElementById("CheckCount").innerHTML = result;
+    function Green() {
+        var str = "Correct";
+        var result = str.fontcolor("green");
+        document.getElementById("CheckCount").innerHTML = result;
+    }
+    function UpdateLevel() {
+        if (score >= 10) {
+            level = (level + 1);
+            score = 0;
+        } else {
+            level = level;
         }
-        function UpdateLevel() {
-            if (score >= 10) {
-                level = (level + 1);
-                score = 0;
-            } else {
-                level = level;
-            }
-            document.getElementById("head").innerHTML = "Level " + level;
-            }
+        document.getElementById("head").innerHTML = "Level " + level;
+        }
 </script>
     
 <body onload="NumberGen();updateClickCount();Check();UpdateLevel();">

@@ -34,7 +34,7 @@
     function Check() {
         if ((x + y) == clicks) {
             document.getElementById("CheckCount").innerHTML = "Correct";
-            score++;
+            score = (score + 1);
         } else {
             document.getElementById("CheckCount").innerHTML = "Incorrect";
         }
@@ -54,8 +54,6 @@
 <div id="CheckCount"></div>
 <br>
 <div id="ScoreCount"></div>
-    
-<button type="button" onClick="Check();" id="push">Check</button>
 
 </body>
 </html>

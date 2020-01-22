@@ -34,6 +34,8 @@
             UpdateClickCount();
             AutoclicksPerSecond++;
             Autoclickers++;
+            document.getElementById("Autoclickers").innerHTML =
+                Autoclickers;
             document.getElementById("AutoclicksPerSecond").innerHTML =
                 "Autoclicks per second: " + AutoclicksPerSecond;
             clearInterval(myVar);

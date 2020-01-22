@@ -19,6 +19,8 @@
     var Autoclickers = 0;
     var AutoclickersCost = 100;
     var AutoclicksPerSecond = 0;
+    var BiggerClickerCost = 100;
+    var ClickerSize = 1;
     function UpdateClickCount() {
         document.getElementById("ClickCount").innerHTML =
             "Clicks: " + Clicks;
@@ -74,6 +76,13 @@
     <span id="Autoclickers"></span>
     <br>
     <span id="AutoclickersCost"></span>
+    <br>
+    <br>
+    <b>Automation</b>
+    <hr>
+    <button id="BiggerClicker" type="button" onclick="BiggerClicker();">Bigger Clicker</button>
+    <br>
+    <span id="BiggerClickerCost"></span>
 </body>
 
 </html>

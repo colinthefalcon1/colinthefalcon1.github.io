@@ -75,40 +75,41 @@
         }
     }
         function AddMegaclickers() {
-        if ((Clicks - MegaclickersCost) >= 0) {
-            Clicks = (Clicks - MegaclickersCost);
-            UpdateClickCount();
-            AutoclicksPerSecond = (AutoclicksPerSecond + 100);
-            Megaclickers = (Megaclickers + 1);
-            document.getElementById("Megaclickers").innerHTML =
-                Megaclickers;
-            document.getElementById("AutoclicksPerSecond").innerHTML =
-                "Autoclicks per second: " + AutoclicksPerSecond;
-            MegaclickersCost = Math.round(MegaclickersCost * 1.05);
-            document.getElementById("MegaclickersCost").innerHTML =
-                "Cost: " + MegaclickersCost + " Clicks";
-            var sec = Math.round(1000 / AutoclicksPerSecond)
-            clearInterval(myVar);
-            var myVar = setInterval(myTimer, sec);
+            if ((Clicks - MegaclickersCost) >= 0) {
+                Clicks = (Clicks - MegaclickersCost);
+                UpdateClickCount();
+                AutoclicksPerSecond = (AutoclicksPerSecond + 100);
+                Megaclickers = (Megaclickers + 1);
+                document.getElementById("Megaclickers").innerHTML =
+                    Megaclickers;
+                document.getElementById("AutoclicksPerSecond").innerHTML =
+                    "Autoclicks per second: " + AutoclicksPerSecond;
+                MegaclickersCost = Math.round(MegaclickersCost * 1.05);
+                document.getElementById("MegaclickersCost").innerHTML =
+                    "Cost: " + MegaclickersCost + " Clicks";
+                var sec = Math.round(1000 / AutoclicksPerSecond)
+                clearInterval(myVar);
+                var myVar = setInterval(myTimer, sec);
+            }
         }
         function AddBangladeshiClickfarms() {
-        if ((Clicks - BangladeshiClickfarmsCost) >= 0) {
-            Clicks = (Clicks - BangladeshiClickfarmsCost);
-            UpdateClickCount();
-            AutoclicksPerSecond = (AutoclicksPerSecond + 100);
-            BangladeshiClickfarms = (BangladeshiClickfarms + 1);
-            document.getElementById("BangladeshiClickfarms").innerHTML =
-                BangladeshiClickfarms;
-            document.getElementById("AutoclicksPerSecond").innerHTML =
-                "Autoclicks per second: " + AutoclicksPerSecond;
-            BangladeshiClickfarmsCost = Math.round(BangladeshiClickfarmsCost * 1.05);
-            document.getElementById("BangladeshiClickfarmsCost").innerHTML =
-                "Cost: " + BangladeshiClickfarmsCost + " Clicks";
-            var sec = Math.round(1000 / AutoclicksPerSecond)
-            clearInterval(myVar);
-            var myVar = setInterval(myTimer, sec);
+            if ((Clicks - BangladeshiClickfarmsCost) >= 0) {
+                Clicks = (Clicks - BangladeshiClickfarmsCost);
+                UpdateClickCount();
+                AutoclicksPerSecond = (AutoclicksPerSecond + 100);
+                BangladeshiClickfarms = (BangladeshiClickfarms + 1);
+                document.getElementById("BangladeshiClickfarms").innerHTML =
+                    BangladeshiClickfarms;
+                document.getElementById("AutoclicksPerSecond").innerHTML =
+                    "Autoclicks per second: " + AutoclicksPerSecond;
+                BangladeshiClickfarmsCost = Math.round(BangladeshiClickfarmsCost * 1.05);
+                document.getElementById("BangladeshiClickfarmsCost").innerHTML =
+                    "Cost: " + BangladeshiClickfarmsCost + " Clicks";
+                var sec = Math.round(1000 / AutoclicksPerSecond)
+                clearInterval(myVar);
+                var myVar = setInterval(myTimer, sec);
+            }
         }
-    }
     function BiggerClicker() {
         if ((Clicks - BiggerClickerCost) >= 0) {
             Clicks = (Clicks - BiggerClickerCost);

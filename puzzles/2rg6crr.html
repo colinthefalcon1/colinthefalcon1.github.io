@@ -199,6 +199,13 @@ padding-left: 50px;
         Clicks = 0;
         UpdateClickCount();
     }
+    function Withdraw() {
+        Clicks = (Clicks + Invested);
+        UpdateClickCount();
+        Invested = 0;
+        document.getElementById("Invested").innerHTML =
+            "Clicks Invested: " + Invested;
+    }
 </script>
 
 <body onload="UpdateClickCount();OnStartup();">

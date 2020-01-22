@@ -46,12 +46,11 @@
         document.getElementById("AutoclicksPerSecond").innerHTML =
             "Autoclicks per second: " + AutoclicksPerSecond;
     }
-    while (AutoclicksPerSecond > 0) {
-        setInterval(function(){ 
-            Clicks++;
-            UpdateClickCount();
-        }, 1000);
-    }
+    setInterval(function(){ 
+        Clicks++;
+        UpdateClickCount();
+    }, (1000 / (AutoclicksPerSecond + 0.0001)));
+    
     // bangladeshi click farm
 </script>
 

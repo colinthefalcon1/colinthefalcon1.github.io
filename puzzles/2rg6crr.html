@@ -94,7 +94,7 @@
         if ((Clicks - AlbanianClickerCost) >= 0) {
             Clicks = (Clicks - AlbanianClickerCost);
             UpdateClickCount();
-            ClickerSize = (ClickerSize + 100);
+            ClickerSize = (ClickerSize + 10000);
             document.getElementById("ClickerButton").innerHTML =
                 "+" + ClickerSize + " Clicks";
             AlbanianClickerCost = Math.round(AlbanianClickerCost * 1.05);

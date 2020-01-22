@@ -16,6 +16,7 @@
 
 <style>
     div.b { 
+        color: rgba(0, 0, 0, 0.5);
         opacity: 0;
         transition: opacity 2s;
         -webkit-transition: opacity 2s; /* Safari */
@@ -97,10 +98,12 @@ padding-left: 50px;
         } else {
             document.getElementById("IncreaseReturn").disabled = true;
         }
-        if (Clicks >= 10) {
+        if (10 > Clicks > 5) {
             document.getElementById("CommentText").innerHTML =
                 "> welcome to my clicker game";
             document.getElementById("Comment").style.opacity='1';
+        } else {
+            document.getElementById("Comment").style.opacity='0';
         }
         if (RateOfReturn >= 0.50) {
             document.getElementById("IncreaseReturn").innerHTML =

@@ -52,8 +52,9 @@
             "Autoclicks per second: " + AutoclicksPerSecond;
     }
     function myTimer() {
+        Clicks++;
         document.getElementById("ClickCount").innerHTML =
-            "Clicks: " + (Clicks + 1);
+            "Clicks: " + Clicks;
     }
     
     // bangladeshi click farm

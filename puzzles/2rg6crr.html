@@ -44,10 +44,10 @@
             document.getElementById("Autoclickers").innerHTML =
                 Autoclickers;
             document.getElementById("AutoclicksPerSecond").innerHTML =
-                "Autoclicks per second: " + AutoclicksPerSecond;
-            AutoClickersCost = Math.round(AutoClickersCost * 1.1);
-            document.getElementById("AutoClickersCost").innerHTML =
-                "Cost: " + AutoClickersCost + " Clicks";
+                "Autoclicks per second: " + AutoClicksPerSecond;
+            AutoclickersCost = Math.round(AutoclickersCost * 1.1);
+            document.getElementById("AutoclickersCost").innerHTML =
+                "Cost: " + AutoclickersCost + " Clicks";
             var sec = Math.round(1000 / AutoclicksPerSecond)
             clearInterval(myVar);
             var myVar = setInterval(myTimer, sec);

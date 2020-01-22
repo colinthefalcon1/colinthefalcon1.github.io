@@ -98,6 +98,8 @@ padding-left: 50px;
             document.getElementById("IncreaseReturn").disabled = true;
         }
         if (Clicks >= 10) {
+            document.getElementById("CommentText").innerHTML =
+                "> welcome to my clicker game";
             document.getElementById("Comment").style.opacity='1';
         }
     }
@@ -293,6 +295,7 @@ padding-left: 50px;
         <button id="AlbanianClicker" type="button" onclick="AlbanianClicker();">Albanian Clicker</button>
         <br>
         <span id="AlbanianClickerCost"></span>
+        <br>
         <br>
         <div id="Comment" class="b">
             <p id="CommentText">> Hello</p>

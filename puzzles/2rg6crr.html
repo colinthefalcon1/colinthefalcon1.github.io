@@ -21,6 +21,7 @@
     var AutoclicksPerSecond = 0;
     var BiggerClickerCost = 100;
     var ClickerSize = 1;
+    var EvenBiggerClickerCost = 10,000;
     function UpdateClickCount() {
         document.getElementById("ClickCount").innerHTML =
             "Clicks: " + Clicks;
@@ -65,6 +66,18 @@
                 "Cost: " + BiggerClickerCost + " Clicks";
         }
     }
+    function EvenBiggerClicker() {
+        if ((Clicks - EvenBiggerClickerCost) >= 0) {
+            Clicks = (Clicks - EvenBiggerClickerCost);
+            UpdateClickCount();
+            ClickerSize = (ClickerSize + 100);
+            document.getElementById("ClickerButton").innerHTML =
+                "+" + ClickerSize + " Clicks";
+            EvenBiggerClickerCost = Math.round(EvenBiggerClickerCost * 1.01);
+            document.getElementById("BiggerClickerCost").innerHTML =
+                "Cost: " + EvenBiggerClickerCost + " Clicks";
+        }
+    }
     function OnStartup() {
         document.getElementById("Autoclickers").innerHTML =
             Autoclickers;
@@ -74,6 +87,8 @@
             "Autoclicks per second: " + AutoclicksPerSecond;
         document.getElementById("BiggerClickerCost").innerHTML =
             "Cost: " + BiggerClickerCost + " Clicks";
+        document.getElementById("EvenBiggerClickerCost").innerHTML =
+            "Cost: " + EvenBiggerClickerCost + " Clicks";
     }
     function myTimer() {
         Clicks++;
@@ -105,6 +120,11 @@
     <button id="BiggerClicker" type="button" onclick="BiggerClicker();">Bigger Clicker</button>
     <br>
     <span id="BiggerClickerCost"></span>
+    <br>
+    <br>
+    <button id="EvenBiggerClicker" type="button" onclick="EvenBiggerClicker();">Even Bigger Clicker</button>
+    <br>
+    <span id="EvenBiggerClickerCost"></span>
 </body>
 
 </html>

@@ -194,7 +194,7 @@ padding-left: 50px;
     function myTimer() {
         Clicks = (Clicks + AutoclicksPerSecond);
         UpdateClickCount();
-        Invested = (Invested * (RateOfReturn + 1));
+        Invested = (Math.round(Invested * (RateOfReturn + 1)));
         document.getElementById("Invested").innerHTML =
             "Clicks Invested: " + Invested;
     }

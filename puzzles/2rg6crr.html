@@ -22,8 +22,8 @@ float: left;
 float: left;
 padding-left: 50px;
     }
-    #ClickCount {
-overflow: visible;
+    div.a {
+    overflow: visible;
     }
 </style>
 
@@ -242,7 +242,7 @@ overflow: visible;
 </script>
 
 <body onload="UpdateClickCount();OnStartup();">
-    <h2><div id="ClickCount"></div></h2>
+    <h2><div id="ClickCount" class="a"></div></h2>
     <button id="ClickerButton" type="button" onclick="Clicks += ClickerSize;UpdateClickCount();">+1 Clicks</button>
     <br>
     <br>

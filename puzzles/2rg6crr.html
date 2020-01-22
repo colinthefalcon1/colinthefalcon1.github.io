@@ -23,6 +23,7 @@
     var ClickerSize = 1;
     var EvenBiggerClickerCost = 10000;
     var AlbanianClickerCost = 1000000;
+    var MegaclickersCost = 10000;
     function UpdateClickCount() {
         Clicks.toLocaleString(); 
         document.getElementById("ClickCount").innerHTML =
@@ -61,6 +62,24 @@
             AutoclickersCost = Math.round(AutoclickersCost * 1.05);
             document.getElementById("AutoclickersCost").innerHTML =
                 "Cost: " + AutoclickersCost + " Clicks";
+            var sec = Math.round(1000 / AutoclicksPerSecond)
+            clearInterval(myVar);
+            var myVar = setInterval(myTimer, sec);
+        }
+    }
+        function AddMegaclickers() {
+        if ((Clicks - MegaclickersCost) >= 0) {
+            Clicks = (Clicks - MegaclickersCost);
+            UpdateClickCount();
+            AutoclicksPerSecond = (AutoclicksPerSecond + 100);
+            Megaclickers = (Megaclickers + 100);
+            document.getElementById("Megaclickers").innerHTML =
+                Megaclickers;
+            document.getElementById("AutoclicksPerSecond").innerHTML =
+                "Autoclicks per second: " + AutoclicksPerSecond;
+            MegaclickersCost = Math.round(MegaclickersCost * 1.05);
+            document.getElementById("MegaclickersCost").innerHTML =
+                "Cost: " + MegaclickersCost + " Clicks";
             var sec = Math.round(1000 / AutoclicksPerSecond)
             clearInterval(myVar);
             var myVar = setInterval(myTimer, sec);
@@ -116,13 +135,14 @@
             "Cost: " + EvenBiggerClickerCost + " Clicks";
         document.getElementById("AlbanianClickerCost").innerHTML =
             "Cost: " + AlbanianClickerCost + " Clicks";
+        document.getElementById("MegaclickersCost").innerHTML =
+            "Cost: " + MegaclickersCost + " Clicks";
     }
     function myTimer() {
         Clicks++;
         document.getElementById("ClickCount").innerHTML =
             "Clicks: " + Clicks;
     }
-    // open albanian national anthem when clicker is unlocked
     // bangladeshi click farm
 </script>
 
@@ -140,6 +160,12 @@
     <span id="Autoclickers"></span>
     <br>
     <span id="AutoclickersCost"></span>
+    <br>
+    <br>
+    <button id="AddMegaclickers" type="button" onclick="AddMegaclickers();">Megaclickers</button>
+    <span id="Megaclickers"></span>
+    <br>
+    <span id="MegaclickersCost"></span>
     <br>
     <br>
     <b>Effeciency</b>

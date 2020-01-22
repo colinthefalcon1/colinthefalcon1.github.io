@@ -52,7 +52,7 @@
                 Autoclickers;
             document.getElementById("AutoclicksPerSecond").innerHTML =
                 "Autoclicks per second: " + AutoclicksPerSecond;
-            AutoclickersCost = Math.round(AutoclickersCost * 1.01);
+            AutoclickersCost = Math.round(AutoclickersCost * 1.05);
             document.getElementById("AutoclickersCost").innerHTML =
                 "Cost: " + AutoclickersCost + " Clicks";
             var sec = Math.round(1000 / AutoclicksPerSecond)
@@ -79,7 +79,7 @@
             ClickerSize = (ClickerSize + 100);
             document.getElementById("ClickerButton").innerHTML =
                 "+" + ClickerSize + " Clicks";
-            EvenBiggerClickerCost = Math.round(EvenBiggerClickerCost * 1.02);
+            EvenBiggerClickerCost = Math.round(EvenBiggerClickerCost * 1.05);
             document.getElementById("BiggerClickerCost").innerHTML =
                 "Cost: " + EvenBiggerClickerCost + " Clicks";
         }

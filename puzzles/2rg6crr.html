@@ -193,7 +193,7 @@ padding-left: 50px;
         UpdateClickCount();
     }
     function Deposit() {
-        Invested = Clicks;
+        Invested = (Invested + Clicks);
         document.getElementById("Invested").innerHTML =
             "Clicks Invested: " + Invested;
         Clicks = 0;

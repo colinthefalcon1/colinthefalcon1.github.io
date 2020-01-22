@@ -23,6 +23,7 @@
     }
     function AddAutoclicker() {
     Clicks = (Clicks - AutoclickersCost);
+    UpdateClickCount();
     Autoclickers++;
     document.getElementById("Autoclickers").innerHTML =
         Autoclickers;

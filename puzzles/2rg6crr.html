@@ -22,11 +22,13 @@
             "Clicks: " + Clicks;
     }
     function AddAutoclicker() {
-        Clicks = (Clicks - AutoclickersCost);
-        UpdateClickCount();
-        Autoclickers++;
-        document.getElementById("Autoclickers").innerHTML =
-            Autoclickers;
+        if ((Clicks - AutoclickerCost) >= 0) {
+            Clicks = (Clicks - AutoclickersCost);
+            UpdateClickCount();
+            Autoclickers++;
+            document.getElementById("Autoclickers").innerHTML =
+                Autoclickers;
+        }
     }
     // bangladeshi click farm
 </script>

@@ -20,6 +20,11 @@
     function UpdateClickCount() {
         document.getElementById("ClickCount").innerHTML =
             "Clicks: " + Clicks;
+        if ((Clicks - AutoclickersCost) >= 0) {
+            document.getElementById("AddAutoclicker").disabled = false;
+        } else {
+            document.getElementById("AddAutoclicker").disabled = true;
+        }
     }
     function AddAutoclicker() {
         if ((Clicks - AutoclickersCost) >= 0) {
@@ -46,7 +51,7 @@
     <br>
     <b>Automation</b>
     <hr>
-    <button type="button" onclick="AddAutoclicker();">Autoclickers</button>
+    <button id="AddAutoclicker" type="button" onclick="AddAutoclicker();">Autoclickers</button>
     <span id="Autoclickers"></span>
     <p id="AutoclickersCost"></p>
 </body>

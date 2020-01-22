@@ -35,7 +35,7 @@
             AutoclicksPerSecond++;
             Autoclickers++;
             document.getElementById("AutoclicksPerSecond").innerHTML =
-                "Clicks per second: " + AutoclicksPerSecond;
+                "Autoclicks per second: " + AutoclicksPerSecond;
         }
     }
     function OnStartup() {
@@ -46,7 +46,7 @@
         document.getElementById("AutoclicksPerSecond").innerHTML =
             "Autoclicks per second: " + AutoclicksPerSecond;
     }
-    if (AutoclicksPerSecond > 0) {
+    while (AutoclicksPerSecond > 0) {
         setInterval(function(){ 
             Clicks++;
             UpdateClickCount();

@@ -23,6 +23,7 @@
     var ClickerSize = 1;
     var EvenBiggerClickerCost = 10000;
     function UpdateClickCount() {
+        Clicks.toLocaleString(); 
         document.getElementById("ClickCount").innerHTML =
             "Clicks: " + Clicks;
         if ((Clicks - AutoclickersCost) >= 0) {

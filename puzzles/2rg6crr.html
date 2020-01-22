@@ -17,6 +17,7 @@
 <script>
     var Clicks = 0;
     var Autoclickers = 0;
+    var Megaclickers = 0;
     var AutoclickersCost = 100;
     var AutoclicksPerSecond = 0;
     var BiggerClickerCost = 100;
@@ -137,6 +138,8 @@
             "Cost: " + AlbanianClickerCost + " Clicks";
         document.getElementById("MegaclickersCost").innerHTML =
             "Cost: " + MegaclickersCost + " Clicks";
+        document.getElementById("Megaclickers").innerHTML =
+            Megaclickers;
     }
     function myTimer() {
         Clicks++;

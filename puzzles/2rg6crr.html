@@ -18,6 +18,7 @@
     var Clicks = 0;
     var Autoclickers = 0;
     var Megaclickers = 0;
+    var BangladeshiClickfarms = 0;
     var AutoclickersCost = 100;
     var AutoclicksPerSecond = 0;
     var BiggerClickerCost = 100;
@@ -25,6 +26,7 @@
     var EvenBiggerClickerCost = 10000;
     var AlbanianClickerCost = 1000000;
     var MegaclickersCost = 10000;
+    var BangladeshiClickfarmsCost = 1000000;
     function UpdateClickCount() {
         document.getElementById("ClickCount").innerHTML =
             "Clicks: " + Clicks;
@@ -77,7 +79,7 @@
             Clicks = (Clicks - MegaclickersCost);
             UpdateClickCount();
             AutoclicksPerSecond = (AutoclicksPerSecond + 100);
-            Megaclickers = (Megaclickers + 100);
+            Megaclickers = (Megaclickers + 1);
             document.getElementById("Megaclickers").innerHTML =
                 Megaclickers;
             document.getElementById("AutoclicksPerSecond").innerHTML =
@@ -85,6 +87,23 @@
             MegaclickersCost = Math.round(MegaclickersCost * 1.05);
             document.getElementById("MegaclickersCost").innerHTML =
                 "Cost: " + MegaclickersCost + " Clicks";
+            var sec = Math.round(1000 / AutoclicksPerSecond)
+            clearInterval(myVar);
+            var myVar = setInterval(myTimer, sec);
+        }
+        function AddBangladeshiClickfarms() {
+        if ((Clicks - BangladeshiClickfarmsCost) >= 0) {
+            Clicks = (Clicks - BangladeshiClickfarmsCost);
+            UpdateClickCount();
+            AutoclicksPerSecond = (AutoclicksPerSecond + 100);
+            BangladeshiClickfarms = (BangladeshiClickfarms + 1);
+            document.getElementById("BangladeshiClickfarms").innerHTML =
+                BangladeshiClickfarms;
+            document.getElementById("AutoclicksPerSecond").innerHTML =
+                "Autoclicks per second: " + AutoclicksPerSecond;
+            BangladeshiClickfarmsCost = Math.round(BangladeshiClickfarmsCost * 1.05);
+            document.getElementById("BangladeshiClickfarmsCost").innerHTML =
+                "Cost: " + BangladeshiClickfarmsCost + " Clicks";
             var sec = Math.round(1000 / AutoclicksPerSecond)
             clearInterval(myVar);
             var myVar = setInterval(myTimer, sec);
@@ -144,12 +163,15 @@
             "Cost: " + MegaclickersCost + " Clicks";
         document.getElementById("Megaclickers").innerHTML =
             Megaclickers;
+        document.getElementById("BangladeshiClickfarms").innerHTML =
+            BangladeshiClickfarms;
+        document.getElementById("BangladeshiClickfarmsCost").innerHTML =
+            BangladeshiClickfarmsCost;
     }
     function myTimer() {
         Clicks++;
         UpdateClickCount();
     }
-    // bangladeshi click farm
 </script>
 
 <body onload="UpdateClickCount();OnStartup();">
@@ -172,6 +194,12 @@
     <span id="Megaclickers"></span>
     <br>
     <span id="MegaclickersCost"></span>
+    <br>
+    <br>
+    <button id="AddBangladeshiClickfarms" type="button" onclick="AddBangladeshiClickfarms();">Bangladeshi Clickfarms</button>
+    <span id="BangladeshiClickfarms"></span>
+    <br>
+    <span id="BangladeshiClickfarmsCost"></span>
     <br>
     <br>
     <b>Effeciency</b>

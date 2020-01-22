@@ -29,6 +29,11 @@
         } else {
             document.getElementById("AddAutoclicker").disabled = true;
         }
+        if ((Clicks - BiggerClickerCost) >= 0) {
+            document.getElementById("BiggerClicker").disabled = false;
+        } else {
+            document.getElementById("BiggerClicker").disabled = true;
+        }
     }
     function AddAutoclicker() {
         if ((Clicks - AutoclickersCost) >= 0) {

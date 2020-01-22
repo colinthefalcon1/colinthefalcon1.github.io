@@ -40,6 +40,7 @@ padding-left: 50px;
     var BangladeshiClickfarmsCost = 1000000;
     var Invested = 0;
     var RateOfReturn = 0.01;
+    var IncreaseReturnCost = 100000;
     var sec = Math.round(1000)
     clearInterval(myVar);
     var myVar = setInterval(myTimer, sec);
@@ -187,6 +188,8 @@ padding-left: 50px;
             "Clicks Invested: " + Invested;
         document.getElementById("RateOfReturn").innerHTML =
             "Rate of Return: " + RateOfReturn;
+        document.getElementById("IncreaseReturnCost").innerHTML =
+            "Cost: " + IncreaseReturnCost;
     }
     function myTimer() {
         Clicks = (Clicks + AutoclicksPerSecond);
@@ -205,6 +208,17 @@ padding-left: 50px;
         Invested = 0;
         document.getElementById("Invested").innerHTML =
             "Clicks Invested: " + Invested;
+    }
+    function Increase Return() {
+        if ((Clicks - IncreaseReturnCost) >= 0) {
+            Clicks = (Clicks - IncreaseReturnCost);
+            UpdateClickCount();
+            RateOfReturn = (RateOfReturn + 0.01);
+            document.getElementById("RateOfReturn").innerHTML =
+                "Rate of Return: " + RateOfReturn;
+            IncreaseReturnCost = (IncreaseReturnCost * 1.20);
+            document.getElementById("IncreaseReturnCost").innerHTML =
+                "Cost: " + IncreaseReturnCost;
     }
 </script>
 
@@ -266,9 +280,9 @@ padding-left: 50px;
         <span id="RateOfReturn"></span>
         <br>
         <br>
-        <button id="AddMegaclickers" type="button" onclick="AddMegaclickers();">Increase Rate of Return</button>
+        <button id="Increase Return" type="button" onclick="IncreaseReturn();">Increase Rate of Return</button>
         <br>
-        <span id="EvenBiggerClickerCost">Cost: 100000 Clicks</span>
+        <span id="IncreaseReturnCost"></span>
     </div>
 </body>
 

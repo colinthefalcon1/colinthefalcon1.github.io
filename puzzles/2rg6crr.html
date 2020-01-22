@@ -36,6 +36,11 @@
         } else {
             document.getElementById("BiggerClicker").disabled = true;
         }
+        if ((Clicks - EvenBiggerClickerCost) >= 0) {
+            document.getElementById("EvenBiggerClicker").disabled = false;
+        } else {
+            document.getElementById("EvenBiggerClicker").disabled = true;
+        }
     }
     function AddAutoclicker() {
         if ((Clicks - AutoclickersCost) >= 0) {

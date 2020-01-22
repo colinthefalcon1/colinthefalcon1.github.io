@@ -45,6 +45,12 @@
             var myVar = setInterval(myTimer, sec);
         }
     }
+    function BiggerClicker() {
+        if ((Clicks - BiggerClickerCost) >= 0) {
+            Clicks = (Clicks - BiggerClickerCost);
+            UpdateClickCount();
+            ClickerSize++;
+    }
     function OnStartup() {
         document.getElementById("Autoclickers").innerHTML =
             Autoclickers;

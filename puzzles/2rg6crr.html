@@ -102,6 +102,11 @@ padding-left: 50px;
                 "> welcome to my clicker game";
             document.getElementById("Comment").style.opacity='1';
         }
+        if (RateOfReturn >= 0.50) {
+            document.getElementById("IncreaseReturn").innerHTML =
+                "Fully Upgraded";
+            document.getElementById("IncreaseReturn").disabled = true;
+        }
     }
     function AddAutoclicker() {
         if ((Clicks - AutoclickersCost) >= 0) {

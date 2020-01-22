@@ -57,7 +57,7 @@
             ClickerSize++;
             document.getElementById("ClickerButton").innerHTML =
                 "+" + ClickerSize + " Clicks";
-            BiggerClickerCost = (BiggerClickerCost * 1.1);
+            BiggerClickerCost = Math.Round(BiggerClickerCost * 1.1);
             document.getElementById("BiggerClickerCost").innerHTML =
                 "Cost: " + BiggerClickerCost + " Clicks";
         }

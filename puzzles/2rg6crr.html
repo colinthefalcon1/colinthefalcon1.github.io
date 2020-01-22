@@ -34,8 +34,6 @@
             UpdateClickCount();
             Autoclickers++;
             document.getElementById("Autoclickers").innerHTML =
-                Autoclickers;
-            document.getElementById("Autoclickers").innerHTML =
                 "Clicks per second: " + AutoclicksPerSecond;
         }
     }
@@ -48,7 +46,7 @@
     setInterval(function(){ 
         Clicks = (Clicks + 1);
         UpdateClickCount();
-    }, (1 / AutoclicksPerSecond));
+    }, (1000 / AutoclicksPerSecond));
     // bangladeshi click farm
 </script>
 

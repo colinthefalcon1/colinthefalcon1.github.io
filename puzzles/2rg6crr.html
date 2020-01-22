@@ -39,7 +39,8 @@
             document.getElementById("AutoclicksPerSecond").innerHTML =
                 "Autoclicks per second: " + AutoclicksPerSecond;
             clearInterval(myVar);
-            var myVar = setInterval(myTimer, (1000 / AutoclicksPerSecond));
+            var sec = (1000 / AutoclicksPerSecond)
+            var myVar = setInterval(myTimer, sec);
         }
     }
     function OnStartup() {

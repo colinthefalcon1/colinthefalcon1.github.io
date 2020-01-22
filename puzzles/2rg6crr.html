@@ -15,6 +15,11 @@
 </head>
 
 <style>
+    div.b { 
+    opacity: 0;
+    transition: opacity 2s;
+    -webkit-transition: opacity 2s; /* Safari */
+    }
     #one {
 float: left;
     }
@@ -91,6 +96,9 @@ padding-left: 50px;
             document.getElementById("IncreaseReturn").disabled = false;
         } else {
             document.getElementById("IncreaseReturn").disabled = true;
+        }
+        if (Clicks >= 10) {
+            document.getElementById("Comment").style.opacity='1';
         }
     }
     function AddAutoclicker() {
@@ -285,6 +293,10 @@ padding-left: 50px;
         <button id="AlbanianClicker" type="button" onclick="AlbanianClicker();">Albanian Clicker</button>
         <br>
         <span id="AlbanianClickerCost"></span>
+        <br>
+        <div id="Comment" class="b">
+            <p id="CommentText">> Hello</p>
+        </div>
     </div>
     <div id="two" style="display:none;">
         <b>Investing</b>
@@ -302,9 +314,6 @@ padding-left: 50px;
         <button id="IncreaseReturn" type="button" onclick="IncreaseReturn();">Increase Rate of Return</button>
         <br>
         <span id="IncreaseReturnCost"></span>
-    </div>
-    <div id="Comment">
-    <p id="CommentText"></p>
     </div>
 </body>
 

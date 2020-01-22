@@ -33,7 +33,7 @@
             Clicks = (Clicks - AutoclickersCost);
             UpdateClickCount();
             Autoclickers++;
-            document.getElementById("Autoclickers").innerHTML =
+            document.getElementById("AutoclicksPerSecond").innerHTML =
                 "Clicks per second: " + AutoclicksPerSecond;
         }
     }
@@ -47,6 +47,7 @@
         Clicks = (Clicks + 1);
         UpdateClickCount();
     }, (1000 / AutoclicksPerSecond));
+    
     // bangladeshi click farm
 </script>
 

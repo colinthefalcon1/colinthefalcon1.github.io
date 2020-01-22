@@ -16,7 +16,11 @@
 
 <style>
     #one {
-        float: left;
+float: left;
+    }
+    #two {
+float: left;
+padding-left: 50px;
     }
 </style>
 
@@ -34,6 +38,7 @@
     var AlbanianClickerCost = 1000000;
     var MegaclickersCost = 10000;
     var BangladeshiClickfarmsCost = 1000000;
+    var Invested = 0;
     var sec = Math.round(1000)
     clearInterval(myVar);
     var myVar = setInterval(myTimer, sec);
@@ -177,9 +182,18 @@
             BangladeshiClickfarms;
         document.getElementById("BangladeshiClickfarmsCost").innerHTML =
             "Cost: " + BangladeshiClickfarmsCost + " Clicks";
+        document.getElementById("Invested").innerHTML =
+            "Clicks Invested: " + Invested;
     }
     function myTimer() {
         Clicks = (Clicks + AutoclicksPerSecond);
+        UpdateClickCount();
+    }
+    function Deposit() {
+        Invested = Clicks;
+        document.getElementById("Invested").innerHTML =
+            "Clicks Invested: " + Invested;
+        Clicks = 0;
         UpdateClickCount();
     }
 </script>
@@ -228,6 +242,23 @@
         <button id="AlbanianClicker" type="button" onclick="AlbanianClicker();">Albanian Clicker</button>
         <br>
         <span id="AlbanianClickerCost"></span>
+    </div>
+    <div id="two">
+        <b>Investing</b>
+        <hr>
+        <span id="Invested"></span>
+        <br>
+        <br>
+        <button id="Deposit" type="button" onclick="Deposit();">Deposit</button>
+        <button id="Withdraw" type="button" onclick="Withdraw();">Withdraw</button>
+        <br>
+        <br>
+        <span id="Invested">Rate of Return: 0.01</span>
+        <br>
+        <br>
+        <button id="AddMegaclickers" type="button" onclick="AddMegaclickers();">Increase Rate of Return</button>
+        <br>
+        <span id="EvenBiggerClickerCost">Cost: 100000 Clicks</span>
     </div>
 </body>
 

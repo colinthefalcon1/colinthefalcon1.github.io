@@ -84,6 +84,11 @@ padding-left: 50px;
         } else {
             document.getElementById("two").style.display = 'none';
         }
+        If ((Clicks - IncreaseReturnCost) >= 0) {
+            document.getElementById("Increase Return").disabled = false;
+        } else {
+            document.getElementById("Increase Return").disabled = true;
+        }
     }
     function AddAutoclicker() {
         if ((Clicks - AutoclickersCost) >= 0) {

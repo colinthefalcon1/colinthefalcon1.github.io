@@ -25,8 +25,6 @@ padding-left: 50px;
 </style>
 
 <script>
-    var Clicks2 = 0;
-    var Invested2 = 0;
     var WindowTwo = 0;
     var Albania = 0;
     var Clicks = 0;
@@ -44,7 +42,7 @@ padding-left: 50px;
     var Invested = 0;
     var RateOfReturn = 0.01;
     var IncreaseReturnCost = 100000;
-    var sec = Math.round(1);
+    var sec = Math.round(1000);
     clearInterval(myVar);
     var myVar = setInterval(myTimer, sec);
     function UpdateClickCount() {
@@ -206,11 +204,9 @@ padding-left: 50px;
             "Cost: " + IncreaseReturnCost;
     }
     function myTimer() {
-        Clicks2 = (Clicks2 + (AutoclicksPerSecond / 1000));
-        Clicks = Math.round(Clicks2);
+        Clicks = (Clicks + AutoclicksPerSecond);
         UpdateClickCount();
-        Invested2 = (Invested * ((RateOfReturn / 1000) + 1)));
-        Invested = Math.round(Invested2);
+        Invested = (Math.round(Invested * (RateOfReturn + 1)));
         document.getElementById("Invested").innerHTML =
             "Clicks Invested: " + Invested;
     }

@@ -15,9 +15,17 @@
 </head>
 <script>
     var Clicks = 0;
+    var Autoclickers = 0;
+    var AutoclickersCost = 100;
     function UpdateClickCount() {
         document.getElementById("ClickCount").innerHTML =
-        "Clicks: " + Clicks;
+            "Clicks: " + Clicks;
+    }
+    function AddAutoclicker() {
+    Clicks = (Clicks - AutoclickersCost);
+    Autoclickers++;
+    document.getElementById("Autoclickers").innerHTML =
+        Autoclickers;
     }
     // bangladeshi click farm
 </script>
@@ -28,6 +36,10 @@
     <br>
     <br>
     <b>Automation</b>
+    <hr>
+    <button type="button" onclick="AddAutoclicker();">Autoclickers</button>
+    <span id="Autoclickers"></span>
+    <p id="AutoclickersCost"></p>
 </body>
 
 </html>

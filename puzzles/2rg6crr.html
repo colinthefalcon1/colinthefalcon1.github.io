@@ -228,7 +228,7 @@ padding-left: 50px;
         if ((Clicks - IncreaseReturnCost) >= 0) {
             Clicks = (Clicks - IncreaseReturnCost);
             UpdateClickCount();
-            RateOfReturn = (Math.round(RateOfReturn + 0.01));
+            RateOfReturn = ((Math.round((RateOfReturn + 0.01) * 100)) / 100);
             document.getElementById("RateOfReturn").innerHTML =
                 "Rate of Return: " + RateOfReturn;
             IncreaseReturnCost = (IncreaseReturnCost * 5.00);

@@ -55,6 +55,7 @@
             Clicks = (Clicks - BiggerClickerCost);
             UpdateClickCount();
             ClickerSize++;
+            document.getElementById("ClickerButton").title = "+2 Clicks";
         }
     }
     function OnStartup() {
@@ -78,7 +79,7 @@
 
 <body onload="UpdateClickCount();OnStartup();">
     <h2><div id="ClickCount"></div></h2>
-    <button type="button" onclick="Clicks++;UpdateClickCount();">+1 Clicks</button>
+    <button id="ClickerButton" type="button" onclick="Clicks += 2;UpdateClickCount();">+1 Clicks</button>
     <br>
     <br>
     <b>Automation</b>

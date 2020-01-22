@@ -42,6 +42,11 @@
         } else {
             document.getElementById("EvenBiggerClicker").disabled = true;
         }
+        if ((Clicks - AlbanianClickerCost) >= 0) {
+            document.getElementById("AlbanianClicker").disabled = false;
+        } else {
+            document.getElementById("AlbanianClicker").disabled = true;
+        }
     }
     function AddAutoclicker() {
         if ((Clicks - AutoclickersCost) >= 0) {

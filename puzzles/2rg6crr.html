@@ -38,7 +38,7 @@
                 Autoclickers;
             document.getElementById("AutoclicksPerSecond").innerHTML =
                 "Autoclicks per second: " + AutoclicksPerSecond;
-            var sec = (1000 / AutoclicksPerSecond)
+            var sec = Math.round(1000 / AutoclicksPerSecond)
             clearInterval(myVar);
             var myVar = setInterval(myTimer, sec);
         }

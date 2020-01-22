@@ -25,6 +25,7 @@ padding-left: 50px;
 </style>
 
 <script>
+    var WindowTwo = 0;
     var Albania = 0;
     var Clicks = 0;
     var Autoclickers = 0;
@@ -77,8 +78,9 @@ padding-left: 50px;
         } else {
             document.getElementById("AddBangladeshiClickfarms").disabled = true;
         }
-        if (Clicks >= 1000000) {
+        if (Clicks >= 1000000 || WindowTwo == 1) {
             document.getElementById("two").style.display = 'inline';
+            WindowTwo = 1;
         } else {
             document.getElementById("two").style.display = 'none';
         }
@@ -195,11 +197,6 @@ padding-left: 50px;
             "Rate of Return: " + RateOfReturn;
         document.getElementById("IncreaseReturnCost").innerHTML =
             "Cost: " + IncreaseReturnCost;
-        if (Clicks >= 1000000) {
-            document.getElementById("two").style.display = 'inline';
-        } else {
-            document.getElementById("two").style.display = 'none';
-        }
     }
     function myTimer() {
         Clicks = (Clicks + AutoclicksPerSecond);

@@ -32,6 +32,7 @@
         if ((Clicks - AutoclickersCost) >= 0) {
             Clicks = (Clicks - AutoclickersCost);
             UpdateClickCount();
+            AutoclicksPerSecond++;
             Autoclickers++;
             document.getElementById("AutoclicksPerSecond").innerHTML =
                 "Clicks per second: " + AutoclicksPerSecond;

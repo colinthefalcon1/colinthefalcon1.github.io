@@ -36,6 +36,7 @@
             Autoclickers++;
             document.getElementById("AutoclicksPerSecond").innerHTML =
                 "Autoclicks per second: " + AutoclicksPerSecond;
+            var myVar = setInterval(myTimer, (1000 / (AutoclicksPerSecond + .05)));
         }
     }
     function OnStartup() {
@@ -50,7 +51,6 @@
         Clicks++;
         UpdateClickCount();
     }
-    var myVar = setInterval(myTimer, (1000 / (AutoclicksPerSecond + .05)));
     
     // bangladeshi click farm
 </script>

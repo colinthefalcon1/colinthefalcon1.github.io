@@ -13,10 +13,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
 </head>
+
 <script>
     var Clicks = 0;
     var Autoclickers = 0;
     var AutoclickersCost = 100;
+    var AutoclicksPerSecond = 0;
     function UpdateClickCount() {
         document.getElementById("ClickCount").innerHTML =
             "Clicks: " + Clicks;
@@ -33,6 +35,8 @@
             Autoclickers++;
             document.getElementById("Autoclickers").innerHTML =
                 Autoclickers;
+            document.getElementById("Autoclickers").innerHTML =
+                "Clicks per second: " + AutoclicksPerSecond;
         }
     }
     function OnStartup() {
@@ -41,6 +45,9 @@
         document.getElementById("AutoclickersCost").innerHTML =
             "Cost: " + AutoclickersCost + " Clicks"
     }
+    setInterval(function(){ 
+        //code goes here that will be run every 5 seconds.    
+    }, (1 / AutoclicksPerSecond));
     // bangladeshi click farm
 </script>
 
@@ -51,6 +58,9 @@
     <br>
     <b>Automation</b>
     <hr>
+    <span id="AutoclicksPerSecond">sdf</span>
+    <br>
+    <br>
     <button id="AddAutoclicker" type="button" onclick="AddAutoclicker();">Autoclickers</button>
     <span id="Autoclickers"></span>
     <br>

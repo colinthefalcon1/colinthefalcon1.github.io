@@ -55,6 +55,11 @@
         } else {
             document.getElementById("AddMegaclickers").disabled = true;
         }
+        if ((Clicks - BangladeshiClickfarmCost) >= 0) {
+            document.getElementById("AddBangladeshiClickfarm").disabled = false;
+        } else {
+            document.getElementById("AddBangladeshiClickfarm").disabled = true;
+        }
     }
     function AddAutoclicker() {
         if ((Clicks - AutoclickersCost) >= 0) {

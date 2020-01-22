@@ -27,6 +27,9 @@
     var AlbanianClickerCost = 1000000;
     var MegaclickersCost = 10000;
     var BangladeshiClickfarmsCost = 1000000;
+    var sec = Math.round(1000)
+    clearInterval(myVar);
+    var myVar = setInterval(myTimer, sec);
     function UpdateClickCount() {
         document.getElementById("ClickCount").innerHTML =
             "Clicks: " + Clicks;
@@ -74,9 +77,6 @@
             AutoclickersCost = Math.round(AutoclickersCost * 1.05);
             document.getElementById("AutoclickersCost").innerHTML =
                 "Cost: " + AutoclickersCost + " Clicks";
-            var sec = Math.round(1000 / AutoclicksPerSecond)
-            clearInterval(myVar);
-            var myVar = setInterval(myTimer, sec);
         }
     }
         function AddMegaclickers() {
@@ -92,9 +92,6 @@
                 MegaclickersCost = Math.round(MegaclickersCost * 1.05);
                 document.getElementById("MegaclickersCost").innerHTML =
                     "Cost: " + MegaclickersCost + " Clicks";
-                var sec = Math.round(1000 / AutoclicksPerSecond)
-                clearInterval(myVar);
-                var myVar = setInterval(myTimer, sec);
             }
         }
         function AddBangladeshiClickfarms() {
@@ -110,9 +107,6 @@
                 BangladeshiClickfarmsCost = Math.round(BangladeshiClickfarmsCost * 1.05);
                 document.getElementById("BangladeshiClickfarmsCost").innerHTML =
                     "Cost: " + BangladeshiClickfarmsCost + " Clicks";
-                var sec = Math.round(1000 / AutoclicksPerSecond)
-                clearInterval(myVar);
-                var myVar = setInterval(myTimer, sec);
             }
         }
     function BiggerClicker() {
@@ -175,7 +169,7 @@
             "Cost: " + BangladeshiClickfarmsCost + " Clicks";
     }
     function myTimer() {
-        Clicks++;
+        Clicks = (Clicks + AutoclicksPerSecond);
         UpdateClickCount();
     }
 </script>

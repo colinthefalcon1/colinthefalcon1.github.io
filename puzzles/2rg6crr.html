@@ -26,7 +26,6 @@
     var AlbanianClickerCost = 1000000;
     var MegaclickersCost = 10000;
     function UpdateClickCount() {
-        Clicks.toLocaleString(); 
         document.getElementById("ClickCount").innerHTML =
             "Clicks: " + Clicks;
         if ((Clicks - AutoclickersCost) >= 0) {
@@ -148,8 +147,7 @@
     }
     function myTimer() {
         Clicks++;
-        document.getElementById("ClickCount").innerHTML =
-            "Clicks: " + Clicks;
+        UpdateClickCount();
     }
     // bangladeshi click farm
 </script>

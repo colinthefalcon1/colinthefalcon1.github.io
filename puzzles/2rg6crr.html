@@ -19,7 +19,6 @@
         opacity: 0;
         transition: opacity 2s;
         -webkit-transition: opacity 2s; /* Safari */
-        transition-duration: 5s;
     }
     #one {
 float: left;
@@ -250,7 +249,7 @@ padding-left: 50px;
             RateOfReturn = ((Math.round((RateOfReturn + 0.01) * 100)) / 100);
             document.getElementById("RateOfReturn").innerHTML =
                 "Rate of Return: " + RateOfReturn;
-            IncreaseReturnCost = (IncreaseReturnCost * 5.00);
+            IncreaseReturnCost = ((IncreaseReturnCost * 5.00).toFixed(2));
             document.getElementById("IncreaseReturnCost").innerHTML =
                 "Cost: " + IncreaseReturnCost;
         }

@@ -39,6 +39,7 @@ padding-left: 50px;
     var MegaclickersCost = 10000;
     var BangladeshiClickfarmsCost = 1000000;
     var Invested = 0;
+    var RateOfReturn = 0.01;
     var sec = Math.round(1000)
     clearInterval(myVar);
     var myVar = setInterval(myTimer, sec);
@@ -184,6 +185,8 @@ padding-left: 50px;
             "Cost: " + BangladeshiClickfarmsCost + " Clicks";
         document.getElementById("Invested").innerHTML =
             "Clicks Invested: " + Invested;
+        document.getElementById("RateOfReturn").innerHTML =
+            "Rate of Return: " + RateOfReturn;
     }
     function myTimer() {
         Clicks = (Clicks + AutoclicksPerSecond);
@@ -253,7 +256,7 @@ padding-left: 50px;
         <button id="Withdraw" type="button" onclick="Withdraw();">Withdraw</button>
         <br>
         <br>
-        <span id="Invested">Rate of Return: 0.01</span>
+        <span id="RateOfReturn"></span>
         <br>
         <br>
         <button id="AddMegaclickers" type="button" onclick="AddMegaclickers();">Increase Rate of Return</button>

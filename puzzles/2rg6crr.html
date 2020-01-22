@@ -22,6 +22,7 @@
     var BiggerClickerCost = 100;
     var ClickerSize = 1;
     var EvenBiggerClickerCost = 10000;
+    var AlbanianClickerCost = 1000000;
     function UpdateClickCount() {
         Clicks.toLocaleString(); 
         document.getElementById("ClickCount").innerHTML =
@@ -84,6 +85,18 @@
                 "Cost: " + EvenBiggerClickerCost + " Clicks";
         }
     }
+    function AlbanianClicker() {
+        if ((Clicks - AlbanianClickerCost) >= 0) {
+            Clicks = (Clicks - AlbanianClickerCost);
+            UpdateClickCount();
+            ClickerSize = (ClickerSize + 100);
+            document.getElementById("ClickerButton").innerHTML =
+                "+" + ClickerSize + " Clicks";
+            AlbanianClickerCost = Math.round(AlbanianClickerCost * 1.05);
+            document.getElementById("AlbanianClickerCost").innerHTML =
+                "Cost: " + AlbanianrClickerCost + " Clicks";
+        }
+    }
     function OnStartup() {
         document.getElementById("Autoclickers").innerHTML =
             Autoclickers;
@@ -95,13 +108,15 @@
             "Cost: " + BiggerClickerCost + " Clicks";
         document.getElementById("EvenBiggerClickerCost").innerHTML =
             "Cost: " + EvenBiggerClickerCost + " Clicks";
+        document.getElementById("AlbanianClickerCost").innerHTML =
+            "Cost: " + AlbanianClickerCost + " Clicks";
     }
     function myTimer() {
         Clicks++;
         document.getElementById("ClickCount").innerHTML =
             "Clicks: " + Clicks;
     }
-    
+    // open albanian national anthem when clicker is unlocked
     // bangladeshi click farm
 </script>
 
@@ -131,6 +146,11 @@
     <button id="EvenBiggerClicker" type="button" onclick="EvenBiggerClicker();">Even Bigger Clicker</button>
     <br>
     <span id="EvenBiggerClickerCost"></span>
+    <br>
+    <br>
+    <button id="AlbanianClicker" type="button" onclick="AlbanianClicker();">Albanian Clicker</button>
+    <br>
+    <span id="AlbanianClickerCost"></span>
 </body>
 
 </html>

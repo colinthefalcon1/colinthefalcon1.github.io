@@ -24,7 +24,7 @@ gdjs.LoadingScreenPixiRenderer = function(runtimeGamePixiRenderer, loadingScreen
       align: 'center',
     });
     this._madeWithText.position.y = this._pixiRenderer.height / 2 - 130;
-    this._websiteText = new PIXI.Text('Owen Remlinger', {
+    this._websiteText = new PIXI.Text('bruh', {
       fontSize: '30px',
       fontFamily: 'Arial',
       fill: '#FFFFFF',

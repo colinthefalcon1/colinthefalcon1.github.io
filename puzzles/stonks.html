@@ -17,12 +17,13 @@
     padding-left: 2%;
     padding-right: 2%;
     font-family: sans-serif;
+    background-color: #f2f2f2;
   }
   canvas.a {
     border:1px solid #000000;
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 99%;
   }
   #stock1 {
     width: 30%;
@@ -47,7 +48,8 @@
     background-color: #c0c0c0;
   }
   tr:nth-child(odd) {
-    background-color: #f2f2f2;
+    background-color:  #e6e6e6
+;
   }
 </style>
 
@@ -56,7 +58,7 @@
 </script>
 
 <body>
-  <h1 id="cash">$</h1>
+  <h1 id="cash">$174.95</h1>
   <div id="stock">
     <center>
       <h3>Stocks</h3>
@@ -70,8 +72,8 @@
       <br>
       <div id="stockbutton">
         <center>
-          <button>buy</button>
-          <button>sell</button>
+          <button>Buy</button>
+          <button>Sell</button>
         </center>
       </div>
         <table class="a">
@@ -87,6 +89,17 @@
           <tr>
             <td>Value of Shares</td>
             <td>$9083.28</td>
+          </tr>
+        </table>
+        <br>
+        <table class="a">
+          <tr>
+            <td>Market Cap</td>
+            <td>$29.23M</td>
+          </tr>
+          <tr>
+            <td>Percent Ownership</td>
+            <td>0.082%</td>
           </tr>
         </table>
     </div>

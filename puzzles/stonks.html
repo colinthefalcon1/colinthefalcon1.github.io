@@ -54,6 +54,12 @@
 
 <script>
   var cash = 0;
+  var BBMPrice = 12.23;
+  function updateprice() {
+    change = ((Math.floor((Math.random() * 1000) + 1)) / 100).toFixed(2);
+    BBMPrice = (Math.round((BBMPrice + (change - 4.9)) * 100) / 100);
+    document.getElementById("BBMPrice").innerHTML = "$" + BBMPrice;
+  }
 </script>
 
 <body>
@@ -73,12 +79,13 @@
         <center>
           <button>Buy</button>
           <button>Sell</button>
+          <button onclick="updateprice();">Update Price</button>
         </center>
       </div>
         <table class="a">
           <tr>
             <td>Share Price</td>
-            <td style="text-align:right; padding-right: 1%;">$293.17</td>
+            <td id="BBMPrice" style="text-align:right; padding-right: 1%;"></td>
           </tr>
           <br>
           <tr>

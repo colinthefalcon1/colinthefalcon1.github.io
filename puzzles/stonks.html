@@ -1,17 +1,41 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Big Boy Meat Market</title>
-    <meta charset="UTF-8" />
-    <meta name="description" content="I hate descriptions">
-    <meta name="keywords" content="Mack Al-Rashid">
-    <meta name="author" content="Ted Cruz">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#000000" />
-    <meta name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
-
+  <title>Big Boy Meat Market</title>
+  <meta charset="UTF-8" />
+  <meta name="description" content="I hate descriptions">
+  <meta name="keywords" content="Mack Al-Rashid">
+  <meta name="author" content="Ted Cruz">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#000000" />
+  <meta name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
 </head>
 
-<p>stocksim</p>
+<style>
+  #stock1 {
+    width: 20%;
+  }
+</style>
+
+<script>
+  var cash = 0;
+</script>
+
+<body>
+  <h1 id="cash">$</h1>
+  <div id="stocks">
+    <center>
+      <b>Stocks</b>
+      <hr>
+    </center>
+    <div id="stock1">
+      <center>
+        <canvas id="Meat" style="border:1px solid #000000;"></canvas>
+      </center>
+        <br>
+        <button>buy</button>
+        <button>sell</button>
+    </div>
+  </div>
+</body>

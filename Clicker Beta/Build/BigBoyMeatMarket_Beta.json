@@ -1,0 +1,16 @@
+{
+"companyName": "DefaultCompany",
+"productName": "BigBoyMeatMarket",
+"productVersion": "0.1",
+"dataUrl": "BigBoyMeatMarket_Beta.data.unityweb",
+"wasmCodeUrl": "BigBoyMeatMarket_Beta.wasm.code.unityweb",
+"wasmFrameworkUrl": "BigBoyMeatMarket_Beta.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.2.19f1"
+}

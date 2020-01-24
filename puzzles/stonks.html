@@ -57,11 +57,21 @@
   var BBMPrice = 12.23;
   var BBMShares = 0;
   var BBMSharesValue = 0;
+  var trend = 0;
   function updateprice() {
-    change = ((Math.floor((Math.random() * 1000) + 1)) / 100);
-    BBMPrice = (Math.round((BBMPrice + (change - 4.9)) * 100) / 100);
+    a = 4;
+    if (a >= 4) {
+      updatetrend();
+    } else {
+      a++;
+    }
+    change = (((Math.floor((Math.random() * 1000) + 1)) / 100) * (trend / 10));
+    BBMPrice = (Math.round((BBMPrice + (change)) * 100) / 100);
     document.getElementById("BBMPrice").innerHTML = "$" + BBMPrice.toFixed(2);
     updatesharesvalue();
+  }
+  function updatetrend() {
+    trend = ((Math.floor((Math.random() * 10) + 1)) - 5 + (BBMPrice / 10));
   }
   function updatecash() {
     document.getElementById("cash").innerHTML = "$" + cash.toFixed(2);

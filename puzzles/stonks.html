@@ -56,10 +56,12 @@
   var cash = 100;
   var BBMPrice = 12.23;
   var BBMShares = 0;
+  var BBMSharesValue = 0;
   function updateprice() {
     change = ((Math.floor((Math.random() * 1000) + 1)) / 100);
     BBMPrice = (Math.round((BBMPrice + (change - 4.9)) * 100) / 100);
     document.getElementById("BBMPrice").innerHTML = "$" + BBMPrice.toFixed(2);
+    updatesharesvalue();
   }
   function updatecash() {
     document.getElementById("cash").innerHTML = "$" + cash.toFixed(2);
@@ -67,17 +69,23 @@
   function updateshares() {
     document.getElementById("BBMShares").innerHTML = BBMShares;
   }
+  function updatesharesvalue() {
+    BBMSharesValue = (BBMShares * BBMPrice);
+    document.getElementById("BBMSharesValue").innerHTML = "$" + BBMSharesValue.toFixed(2);
+  }
   function buy() {
     cash = (cash - BBMPrice);
     BBMShares++;
     updatecash();
     updateshares();
+    updatesharesvalue();
   }
   function sell() {
     cash = (cash + BBMPrice)
     BBMShares --;
     updatecash();
     updateshares();
+    updatesharesvalue();
   }
   function mytimer(){
     updateprice();
@@ -119,7 +127,7 @@
           </tr>
           <tr>
             <td>Value of Shares</td>
-            <td style="text-align:right; padding-right: 1%;">$9083.28</td>
+            <td id="BBMSharesValue" style="text-align:right; padding-right: 1%;"></td>
           </tr>
         </table>
         <br>

@@ -53,21 +53,40 @@
 </style>
 
 <script>
-  var cash = 0;
+  var cash = 100;
   var BBMPrice = 12.23;
+  var BBMShares = 0;
   function updateprice() {
     change = ((Math.floor((Math.random() * 1000) + 1)) / 100);
     BBMPrice = (Math.round((BBMPrice + (change - 4.9)) * 100) / 100);
     document.getElementById("BBMPrice").innerHTML = "$" + BBMPrice.toFixed(2);
   }
+  function updatecash() {
+    document.getElementById("cash").innerHTML = "$" + cash.toFixed(2);
+  }
+  function updateshares() {
+    document.getElementById("BBMShares").innerHTML = BBMShares;
+  }
+  function buy() {
+    cash = (cash - BBMPrice);
+    BBMShares++;
+    updatecash();
+    updateshares();
+  }
+  function sell() {
+    cash = (cash + BBMPrice)
+    BBMShares --;
+    updatecash();
+    updateshares();
+  }
   function mytimer(){
     updateprice();
+    updatecash();
     setTimeout(mytimer, 1000);
   }
-  mytimer();
 </script>
 
-<body>
+<body onload="mytimer(); updateshares();">
   <h1 id="cash">$174.95</h1>
   <div id="stock">
     <center>
@@ -82,8 +101,8 @@
       <br>
       <div id="stockbutton">
         <center>
-          <button>Buy</button>
-          <button>Sell</button>
+          <button onclick="buy();">Buy</button>
+          <button onclick="sell();">Sell</button>
           <button onclick="updateprice();">Update Price</button>
           <button onclick="mytimer();">Timer</button>
         </center>
@@ -96,7 +115,7 @@
           <br>
           <tr>
             <td>Shares Owned</td>
-            <td style="text-align:right; padding-right: 1%;">31</td>
+            <td id="BBMShares" style="text-align:right; padding-right: 1%;"></td>
           </tr>
           <tr>
             <td>Value of Shares</td>

@@ -65,13 +65,13 @@
     } else {
       a++;
     }
-    change = (((Math.floor((Math.random() * 1000) + 1)) / 100) * (trend / 10));
-    BBMPrice = (Math.round((BBMPrice + (change)) * 100) / 100);
+    change = (((Math.floor((Math.random() * 1000) + 1)) / 100) - trend);
+    BBMPrice = (Math.abs(Math.round((BBMPrice + change) * 100) / 100));
     document.getElementById("BBMPrice").innerHTML = "$" + BBMPrice.toFixed(2);
     updatesharesvalue();
   }
   function updatetrend() {
-    trend = ((Math.floor((Math.random() * 10) + 1)) - 5 + (BBMPrice / 10));
+    trend = ((Math.floor((Math.random() * 10) + 1)) - 6 + (BBMPrice / 5));
   }
   function updatecash() {
     document.getElementById("cash").innerHTML = "$" + cash.toFixed(2);
@@ -105,7 +105,7 @@
 </script>
 
 <body onload="mytimer(); updateshares();">
-  <h1 id="cash">$174.95</h1>
+  <h1 id="cash"></h1>
   <div id="stock">
     <center>
       <h3>Stocks</h3>

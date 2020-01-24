@@ -56,9 +56,9 @@
   var cash = 0;
   var BBMPrice = 12.23;
   function updateprice() {
-    change = ((Math.floor((Math.random() * 1000) + 1)) / 100).toFixed(2);
+    change = ((Math.floor((Math.random() * 1000) + 1)) / 100);
     BBMPrice = (Math.round((BBMPrice + (change - 4.9)) * 100) / 100);
-    document.getElementById("BBMPrice").innerHTML = "$" + BBMPrice;
+    document.getElementById("BBMPrice").innerHTML = "$" + BBMPrice.toFixed(2);
   }
 </script>
 

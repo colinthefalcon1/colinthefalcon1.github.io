@@ -75,13 +75,27 @@
   }
   function updatecash() {
     document.getElementById("cash").innerHTML = "$" + cash.toFixed(2);
+    canbuy();
   }
   function updateshares() {
     document.getElementById("BBMShares").innerHTML = BBMShares;
+    if (BBMShares > 0) {
+      document.getElementById("BBMSell").disabled = false;
+    } else {
+      document.getElementById("BBMSell").disabled = true;
+    }
   }
   function updatesharesvalue() {
     BBMSharesValue = (BBMShares * BBMPrice);
     document.getElementById("BBMSharesValue").innerHTML = "$" + BBMSharesValue.toFixed(2);
+    canbuy();
+  }
+  function canbuy() {
+    if (cash > BBMPrice) {
+      document.getElementById("BBMBuy").disabled = false;
+    } else {
+      document.getElementById("BBMBuy").disabled = true;
+    }
   }
   function buy() {
     cash = (cash - BBMPrice);
@@ -119,8 +133,8 @@
       <br>
       <div id="stockbutton">
         <center>
-          <button onclick="buy();">Buy</button>
-          <button onclick="sell();">Sell</button>
+          <button id="BBMBuy" onclick="buy();">Buy</button>
+          <button id="BBMSell" onclick="sell();" disabled>Sell</button>
         </center>
       </div>
         <table class="a">

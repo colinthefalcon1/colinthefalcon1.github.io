@@ -15,7 +15,7 @@
 </head>
 
 <style>
-    div.b { 
+    div.b {
         color: rgba(0, 0, 0, 0.5);
         opacity: 0;
         transition: opacity 2s;
@@ -249,7 +249,7 @@ padding-left: 50px;
         if ((Clicks - IncreaseReturnCost) >= 0) {
             Clicks = (Clicks - IncreaseReturnCost);
             UpdateClickCount();
-            RateOfReturn = (((Math.round((RateOfReturn + 0.01) * 100)) / 100).toFixed(2));
+            RateOfReturn = ((Math.round((RateOfReturn + 0.01) * 100)) / 100);
             document.getElementById("RateOfReturn").innerHTML =
                 "Rate of Return: " + RateOfReturn;
             IncreaseReturnCost = (IncreaseReturnCost * 5.00);

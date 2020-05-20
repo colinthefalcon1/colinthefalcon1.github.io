@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Boiling/Freezing Game</title>
+<meta charset="UTF-8" />
+<meta name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+
+<style>
+body, html {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+#main, #title {
+  padding-left:5%;
+  padding-right:5%;
+}
+</style>
+
+<script>
+//1.03 * m
+
+var BoilingPoint = 100;
+
+function UpdateBoiling() {
+  var SaltWeight = document.getElementById("SaltInputId").value;
+  var WaterVolume = document.getElementById("WaterInputId").value;
+  var Altitude = document.getElementById("AltitudeInputId").value;
+  var BoilingPoint = (100 + (1.03 * (SaltWeight / 58.44) / ((.994 * WaterVolume) / 1000))) - (0.001 * Altitude);
+  document.getElementById("BoilingPoint").innerHTML =
+      "Boiling Point: <b>" + BoilingPoint.toFixed(1) + "˚C"
+}
+
+//Freezing
+// ˚C Change = 3.72 * (Grams NaCl / 58.44)  /  ((.994 * mL water) / 1000)
+
+var FreezingPoint = 0;
+
+function UpdateFreezing() {
+  var SaltWeight = document.getElementById("SaltInputId").value;
+  var WaterVolume = document.getElementById("WaterInputId").value;
+  var Altitude = document.getElementById("AltitudeInputId").value;
+  var FreezingPoint = 0 - (3.72 * (SaltWeight / 58.44)  /  ((.994 * WaterVolume) / 1000));
+    document.getElementById("FreezingPoint").innerHTML =
+        "Freezing Point: <b>" + FreezingPoint.toFixed(1) + "˚C" +"</b>*"
+}
+</script>
+
+</head>
+
+<body onload="UpdateBoiling();UpdateFreezing();">
+<h1 id="title">Boiling/Freezing Point Game</h1>
+
+<div id="main">
+  <p>Substance: Water</p>
+
+  <p>Amount of Water (mL):</p>
+
+  <input type="range" name="WaterInputName" id="WaterInputId" value="500" min="1" max="1000" oninput="WaterOutputId.value = WaterInputId.value; UpdateFreezing(); UpdateBoiling();">
+  <output name="WaterOutputName" id="WaterOutputId">500</output>
+
+  <p>Amount of Salt (g):</p>
+
+  <input type="range" name="SaltInputName" id="SaltInputId" value="50" min="0" max="100" oninput="SaltOutputId.value = SaltInputId.value; UpdateFreezing(); UpdateBoiling();">
+  <output name="SaltOutputName" id="SaltOutputId">50</output>
+
+  <p>Altitude (ft):</p>
+
+  <input type="range" name="AltitudeInputName" id="AltitudeInputId" value="1000" min="1" max="30000" oninput="AltitudeOutputId.value = AltitudeInputId.value; UpdateFreezing(); UpdateBoiling();">
+  <output name="AltitudeOutputName" id="AltitudeOutputId">1000</output>
+
+  <br>
+  <br>
+  <span id="BoilingPoint"></span>
+  <br>
+  <span id="FreezingPoint"></span>
+  <br>
+  <p>*While altitude does effect the freezing point of water the change is very small (<.001˚C/1000 ft)
+</div>
+
+</body>
+</html>

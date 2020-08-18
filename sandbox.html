@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Sandbox</title>
+  <title>Sandbox</title>
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js">    </script>
 </head>
 <body>
 
 <h1>top text</h1>
 <p>to do:google sheet leaderboard</p>
 <p>maybe multiplayer from sheets</p>
-
+  
+<script>
+    $.ajax("https://docs.google.com/spreadsheet/pub?key=0Auwt3KepmdoudE1iZFVFYmlQclcxbW85YzNZSTYyUHc&single=true&gid=0&range=b5&output=csv").done(function(result){
+        alert(result);
+    });
+</script>
+  
 </body>
 </html>

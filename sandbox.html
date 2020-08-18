@@ -3,28 +3,11 @@
 <head>
   <title>Sandbox</title>
 </head>
-<script>
-function loadData() {
-  var url="https://docs.google.com/spreadsheet/pub?key=1IY3xxSk4wsEhkuZ-FQ-2vkXjUnralXkdm-oKHxEBc4E&single=true&gid=0&range=a1&output=csv";
-  xmlhttp=new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function() {
-    if(xmlhttp.readyState == 4 && xmlhttp.status==200){
-      document.getElementById("display").innerHTML = xmlhttp.responseText;
-    }
-  };
-  xmlhttp.open("GET",url,true);
-  xmlhttp.send(null);
-}
-</script>
-  
-<body>
-
 <h1>top text</h1>
 <p>to do:google sheet leaderboard</p>
 <p>maybe multiplayer from sheets</p>
   
-<button type="button" onclick="loadData()">Load Spreadsheet Data</button>
-<div id="display"></div>
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQK8xNicPK8guBa9psrI-P-IcBqZOXNRng2k5cePfij7mDKtxigbFdBiMoGa9nn6ZM0FN-fBpNn06Bx/pubhtml?widget=true&amp;headers=false"></iframe>
  
   
 </body>

@@ -10,6 +10,9 @@
 <p>to do:google sheet leaderboard</p>
 <p>maybe multiplayer from sheets</p>
   
+<button type="button" onclick="loadData()">Load Spreadsheet Data</button>
+<div id="display"></div>
+  
 <script>
     $.ajax("https://docs.google.com/spreadsheet/pub?key=1IY3xxSk4wsEhkuZ-FQ-2vkXjUnralXkdm-oKHxEBc4E&single=true&gid=0&range=a1&output=csv").done(function(result){
         alert(result);

@@ -169,11 +169,11 @@
     document.getElementById("Population").innerHTML = "<b>" + popstring + "</b>";
 
     if ((population2 - population1) > 0) {
-      document.getElementById("popcha").innerHTML = "(<span style=\"color: green;\">+" + populationchange + "</span>)";
+      document.getElementById("Population").innerHTML = "(<span style=\"color: green;\">+" + populationchange + "</span>)" + "<b> " + popstring + "</b>";
     } else if ((population2 - population1) < 0) {
-      document.getElementById("popcha").innerHTML = "(<span style=\"color: red;\">" + populationchange + "</span>)";
+      document.getElementById("Population").innerHTML = "(<span style=\"color: red;\">" + populationchange + "</span>)" + "<b> " + popstring + "</b>";
     } else {
-      document.getElementById("popcha").innerHTML = "(<span>" + populationchange + "</span>)";
+      document.getElementById("Population").innerHTML =  "(<span>" + populationchange + "</span>)" + "<b> " + popstring + " </b>";
     }
   }
 
@@ -233,8 +233,7 @@
        <table class="a" style="table-layout:fixed; width:100%;">
          <tr>
            <td>Population</td>
-           <td id="Population" style="text-align:right; padding-left: 37%;"></td>
-           <td id="popcha" style="text-align:right; padding-right:1%;"></td>
+           <td id="Population" style="text-align:right; padding-right:1%;"></td>
          </tr>
        </table>
        <br>

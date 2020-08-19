@@ -94,7 +94,7 @@
   }
 
   function mytimer(){
-    var t = setTimeout(mytimer, 500);
+    var t = setTimeout(mytimer, 250);
     add();
   }
 
@@ -164,7 +164,7 @@
     <center>
       <div class='form-uname'>
         <h1><label id='nameLable' for='nameField'>Name your country:</label></h1>
-        <h2 id="dateID"></h2><span id="date2">text</span>
+        <h2 style="margin: 0.4em auto;" id="dateID"></h2><span id="date2">text</span>
         <button type='button' id='pause' onclick='symbol();'>play</button>
         <hr>
         <input id='nameField' type='text' maxlength='250'></input>

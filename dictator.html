@@ -79,12 +79,26 @@
     document.getElementById("dateID").innerHTML = m;
   }
 
+  function symbol(){
+    var y = document.getElementById("pause").textContent;
+    if (y == "▶️") {
+      document.getElementById("pause").innerHTML = "❚❚";
+    } else {
+      document.getElementById("pause").innerHTML = "▶️";
+    }
+  }
+
+  function mytimer(){
+    add();
+    var t = setTimeout(mytimer, 500);
+    document.getElementById("dateID").innerHTML = n;
+  }
+
   var added = 0;
 
   function add() {
     added++;
     addday();
-    document.getElementById("pause").innerHTML = "paused";
   }
 
   function addday() {
@@ -104,12 +118,6 @@
     month = monthNames[z.getMonth()];
     day = z.getDate();
     n = month + " " + day + ", " + year;
-    document.getElementById("dateID").innerHTML = n;
-  }
-
-  function mytimer(){
-    add();
-    var t = setTimeout(mytimer, 500);
     document.getElementById("dateID").innerHTML = n;
   }
 
@@ -149,13 +157,11 @@
     <form id='nameForm'>
     <center>
       <div class='form-uname'>
-          <h1><label id='nameLable' for='nameField'>Name your country:</label></h1>
-          <div>
-            <h2 id="dateID"></h2><span id="date2">text</span>
-            <button id="pause" onclick="mytimer();">play</button>
-          </div>
-          <hr>
-          <input id='nameField' type='text' maxlength='250'></input>
+        <h1><label id='nameLable' for='nameField'>Name your country:</label></h1>
+        <h2 id="dateID"></h2><span id="date2">text</span>
+        <button type='button' id='pause' onclick='mytimer(); symbol();'>▶️</button>
+        <hr>
+        <input id='nameField' type='text' maxlength='250'></input>
       </div>
       <div class='form-sub'>
           <button onclick="updatecountryname(); date();" id='subButton' type='button'><b>I'm ready to rule</b></button>

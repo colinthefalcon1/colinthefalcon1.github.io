@@ -40,6 +40,8 @@
   function invisible() {
     var main = document.getElementById("main");
     main.style.display = "none";
+    var date = document.getElementById("date");
+    date.style.display = "none";
   }
 
   function updatecountryname() {
@@ -47,33 +49,42 @@
 
     ran = Math.floor((Math.random() * 3) + 1);
     if (ran == 1) {
-      document.getElementById("nameLable").innerHTML = "The Monarchy of " + input;
+      document.getElementById("nameLable").innerHTML = "The Dysfunctional Monarchy of " + input;
     } else if (ran == 2) {
       document.getElementById("nameLable").innerHTML = "The Italian Wasteland Known as " + input;
     } else {
-      document.getElementById("nameLable").innerHTML = "The People's Republic of " + input;
+      document.getElementById("nameLable").innerHTML = "The Dreary Republic of " + input;
     }
     var myobj = document.getElementById("nameField");
     var myobj2 = document.getElementById("subButton");
     myobj.remove();
     myobj2.remove();
     main.style.display = "block";
-  }
-
-  function update() {
-    var population1 = 100000;
-    var population2 = 100000;
-
-    popstring = population2.toLocaleString();
-    document.getElementById("Population").innerHTML = "<b>" + popstring + "</b>";
-
-    populationchange = (population2 - population1);
-    document.getElementById("PopulationChange").innerHTML = "<b>" + populationchange + "</b>";
+    date.style.display = "block";
   }
 
   function mytimer(){
     update();
     setTimeout(mytimer, 500);
+  }
+
+  function update() {
+    var population1 = 100000;
+    var population2 = 100000;
+    populationchange = (population2 - population1);
+
+    popstring = population2.toLocaleString();
+    document.getElementById("Population").innerHTML = "<b>" + popstring + "</b> (" + populationchange + ")";
+  }
+
+  function taxslider(){
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function() {
+      output.innerHTML = ("<b>" + this.value + "%</b>");
+    }
   }
   </script>
 </head>
@@ -88,6 +99,7 @@
     <center>
       <div class='form-uname'>
           <h1><label id='nameLable' for='nameField'>Name your country:</label></h1>
+          <h2 id="date">January 1, 1950</h2>
           <hr>
           <input id='nameField' type='text' maxlength='250'></input>
       </div>
@@ -104,10 +116,6 @@
          <tr>
            <td>Population</td>
            <td id="Population" style="text-align:right; padding-right: 1%;"></td>
-         </tr>
-         <tr>
-           <td>Population Change</td>
-           <td id="PopulationChange" style="text-align:right; padding-right: 1%;">+ 112</td>
          </tr>
        </table>
        <br>
@@ -127,17 +135,28 @@
       <table class="a">
         <tr>
           <td>National Bank</td>
-          <td id="Bank" style="text-align:right; padding-right: 1%;">500$</td>
+          <td></td>
+          <td id="Bank" style="text-align:right; padding-right: 1%;"><b>500$</b> (+32$)</td>
         </tr>
         <tr>
-          <td>GDP</td>
-          <td id="GDP" style="text-align:right; padding-right: 1%;">0.082%</td>
+          <td>Income Tax</td>
+          <center>
+            <td><input type="range" min="1" max="100" value="25" class="slider" id="myRange" oninput="taxslider();"></td>
+          </center>
+          <td style="text-align: right;"><span id="demo"><b>25%</b></span></td>
         </tr>
       </table>
       <br>
       <table class="a">
         <tr>
-          <td> Ruling Party</td>
+          <td>Corruption</td>
+          <td id="Corruption" style="text-align:right; padding-right: 1%;"><b>50%</b> (-20%)</td>
+        </tr>
+      </table>
+      <br>
+      <table class="a">
+        <tr>
+          <td>Ruling Party</td>
           <td id="Party" style="text-align:right; padding-right: 1%;">Conservative</td>
         </tr>
         <tr>

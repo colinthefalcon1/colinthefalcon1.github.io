@@ -11,7 +11,37 @@
   <meta name="theme-color" content="#000000" />
   <meta name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
 
+  <style>
+  body {
+    padding-left: 2%;
+    padding-right: 2%;
+    font-family: sans-serif;
+    background-color: #f2f2f2;
+  }
+  table.a {
+    width: 100%
+  }
+  #summary {
+    justify-content: center;
+    width: 100%;
+  }
+  table, th, td {
+    border-collapse: collapse;
+  }
+  tr:nth-child(even) {
+    background-color: #c0c0c0;
+  }
+  tr:nth-child(odd) {
+    background-color:  #e6e6e6;
+  }
+  </style>
+
   <script>
+  function invisible() {
+    var main = document.getElementById("main");
+    main.style.display = "none";
+  }
+
   function updatecountryname() {
     var input = document.getElementById('nameField').value;
 
@@ -27,12 +57,28 @@
     var myobj2 = document.getElementById("subButton");
     myobj.remove();
     myobj2.remove();
+    main.style.display = "block";
+  }
+
+  function update() {
+    var population1 = 100000;
+    var population2 = 100000;
+
+    popstring = population2.toLocaleString();
+    document.getElementById("Population").innerHTML = "<b>" + popstring + "</b>";
+
+    populationchange = (population2 - population1);
+    document.getElementById("PopulationChange").innerHTML = "<b>" + populationchange + "</b>";
+  }
+
+  function mytimer(){
+    update();
+    setTimeout(mytimer, 500);
   }
   </script>
-
 </head>
 
-<body>
+<body onload="mytimer(); invisible();">
   <center>
     <td id="CountryName" style="text-align:right; padding-right: 1%;"></td>
   </center>
@@ -46,11 +92,59 @@
           <input id='nameField' type='text' maxlength='250'></input>
       </div>
       <div class='form-sub'>
-          <button onclick="updatecountryname();" id='subButton' type='button'>I'm ready to rule</button>
+          <button onclick="updatecountryname();" id='subButton' type='button'><b>I'm ready to rule</b></button>
       </div>
     </center>
     </form>
-  <div>
-      <p id='result'></p></div>
+  </div>
+
+  <div id="main">
+    <div style="width: 45%; float:left">
+       <table class="a">
+         <tr>
+           <td>Population</td>
+           <td id="Population" style="text-align:right; padding-right: 1%;"></td>
+         </tr>
+         <tr>
+           <td>Population Change</td>
+           <td id="PopulationChange" style="text-align:right; padding-right: 1%;">+ 112</td>
+         </tr>
+       </table>
+       <br>
+       <table class="a">
+         <tr>
+           <td>GDP</td>
+           <td id="GDP" style="text-align:right; padding-right: 1%;">0.082%</td>
+         </tr>
+         <tr>
+           <td>GDP Per Capita</td>
+           <td id="GDPCapita" style="text-align:right; padding-right: 1%;">0.082%</td>
+         </tr>
+       </table>
+    </div>
+
+    <div style="width: 45%; float:right">
+      <table class="a">
+        <tr>
+          <td>National Bank</td>
+          <td id="Bank" style="text-align:right; padding-right: 1%;">500$</td>
+        </tr>
+        <tr>
+          <td>GDP</td>
+          <td id="GDP" style="text-align:right; padding-right: 1%;">0.082%</td>
+        </tr>
+      </table>
+      <br>
+      <table class="a">
+        <tr>
+          <td> Ruling Party</td>
+          <td id="Party" style="text-align:right; padding-right: 1%;">Conservative</td>
+        </tr>
+        <tr>
+          <td>Ruling Party Support</td>
+          <td id="Support" style="text-align:right; padding-right: 1%;">20%</td>
+        </tr>
+      </table>
+    </div>
   </div>
 </body>

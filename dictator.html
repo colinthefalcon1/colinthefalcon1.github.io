@@ -141,18 +141,20 @@
     if (sip == 0){
       var population1 = 100000;
       var population2 = 100000;
-      population2 = (population2 * 1.01);
+      population2 = (population2 * 1.000);
       populationchange = (population2 - population1);
       document.getElementById("pops").innerHTML = population2;
+      gdpupdate();
       sip++;
     } else {
       q = document.getElementById("pops").textContent;
       population1 = q;
       population2 = q;
-      population2 = (population2 * 1.01);
+      population2 = (population2 * 1.0078);
       population2 = Math.round(population2)
       populationchange = (population2 - population1);
       document.getElementById("pops").innerHTML = population2;
+      gdpupdate();
     }
 
     //populationchange = (population2 - population1);
@@ -166,6 +168,17 @@
     } else {
       document.getElementById("Population").innerHTML = "<b>" + popstring + "</b> (<span>" + populationchange + "</span>)";
     }
+  }
+
+  var gdpcapita = 500;
+
+  function gdpupdate() {
+    q = document.getElementById("pops").textContent;
+    gdp = ((q * gdpcapita)/1000);
+    gdpstring = gdp.toLocaleString();
+    document.getElementById("gdp").innerHTML = gdpstring + "$";
+
+    document.getElementById("gdpcapita").innerHTML = gdpcapita + "$";
   }
 
   function taxslider(){
@@ -215,11 +228,11 @@
        <table class="a">
          <tr>
            <td>GDP</td>
-           <td id="GDP" style="text-align:right; padding-right: 1%;">0.082%</td>
+           <td id="gdp" style="text-align:right; padding-right: 1%;"></td>
          </tr>
          <tr>
            <td>GDP Per Capita</td>
-           <td id="GDPCapita" style="text-align:right; padding-right: 1%;">0.082%</td>
+           <td id="gdpcapita" style="text-align:right; padding-right: 1%;">0.082%</td>
          </tr>
        </table>
        <br>

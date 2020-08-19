@@ -41,7 +41,7 @@
     var main = document.getElementById("main");
     main.style.display = "none";
     date2.style.display = "none";
-    timeID.style.display = "none";
+    pause.style.display = "none";
   }
 
   function updatecountryname() {
@@ -60,7 +60,7 @@
     myobj.remove();
     myobj2.remove();
     main.style.display = "block";
-    timeID.style.display = "block";
+    pause.style.display = "block";
   }
 
   function date() {
@@ -84,6 +84,7 @@
   function add() {
     added++;
     addday();
+    document.getElementById("pause").innerHTML = "paused";
   }
 
   function addday() {
@@ -109,6 +110,7 @@
   function mytimer(){
     add();
     var t = setTimeout(mytimer, 500);
+    document.getElementById("dateID").innerHTML = n;
   }
 
   function update() {
@@ -148,9 +150,9 @@
     <center>
       <div class='form-uname'>
           <h1><label id='nameLable' for='nameField'>Name your country:</label></h1>
-          <div id="timeID">
+          <div>
             <h2 id="dateID"></h2><span id="date2">text</span>
-            <button onclick=" mytimer();">▶️</button>
+            <button id="pause" onclick="mytimer();">play</button>
           </div>
           <hr>
           <input id='nameField' type='text' maxlength='250'></input>
@@ -265,4 +267,4 @@
   </div>
 </body>
 
-<button id="bringe" onclick=" mytimer();"<b>Add day</b></button>
+<!-- <button id="bringe" onclick=" mytimer();"<b>Add day</b></button>

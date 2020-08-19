@@ -42,6 +42,7 @@
     main.style.display = "none";
     date2.style.display = "none";
     pause.style.display = "none";
+    dumb.style.display = "none";
   }
 
   function updatecountryname() {
@@ -62,6 +63,7 @@
     main.style.display = "block";
     pause.style.display = "block";
     mytimer();
+    update();
   }
 
   function date() {
@@ -94,7 +96,7 @@
   }
 
   function mytimer(){
-    var t = setTimeout(mytimer, 250);
+    var t = setTimeout(mytimer, 100);
     add();
   }
 
@@ -125,13 +127,37 @@
     day = z.getDate();
     n = month + " " + day + ", " + year;
     document.getElementById("dateID").innerHTML = n;
+
+    if (day == 1) {
+      update();
+    } else {
+      pass
+    }
   }
 
+  var sip = 0;
+
   function update() {
-    var population1 = 100000;
-    var population2 = 100000;
-    populationchange = (population2 - population1);
+    if (sip == 0){
+      var population1 = 100000;
+      var population2 = 100000;
+      population2 = (population2 * 1.01);
+      populationchange = (population2 - population1);
+      document.getElementById("pops").innerHTML = population2;
+      sip++;
+    } else {
+      q = document.getElementById("pops").textContent;
+      population1 = q;
+      population2 = q;
+      population2 = (population2 * 1.01);
+      population2 = Math.round(population2)
+      populationchange = (population2 - population1);
+      document.getElementById("pops").innerHTML = population2;
+    }
+
+    //populationchange = (population2 - population1);
     popstring = population2.toLocaleString();
+    document.getElementById("bringe3").innerHTML = popstring;
 
     if ((population2 - population1) > 0) {
       document.getElementById("Population").innerHTML = "<b>" + popstring + "</b> (<span style=\"color: green;\">+" + populationchange + "</span>)";
@@ -164,7 +190,8 @@
     <center>
       <div class='form-uname'>
         <h1><label id='nameLable' for='nameField'>Name your country:</label></h1>
-        <h2 style="margin: 0.4em auto;" id="dateID"></h2><span id="date2">text</span>
+        <h2 style="margin: 0.4em auto;" id="dateID"></h2>
+        <div id="dumb"><span id="date2">text</span><span id="pops">text</span><p id="bringe3">text</p></div>
         <button type='button' id='pause' onclick='symbol();'>play</button>
         <hr>
         <input id='nameField' type='text' maxlength='250'></input>
@@ -274,9 +301,15 @@
           <td>Debt</td>
           <td id="Debt" style="text-align:right; padding-right: 1%;"><b>200$</b></td>
         </tr>
+        <tr>
+          <td>Interest</td>
+          <td id="Debt" style="text-align:right; padding-right: 1%;"><b>20$</b></td>
+        </tr>
       </table>
     </div>
   </div>
 </body>
+
+<!--<p id="bringe4">text</p>-->
 
 <!--<button id="bringe" onclick=" mytimer();"<b>Add day</b></button>

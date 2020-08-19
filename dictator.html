@@ -128,7 +128,7 @@
     n = month + " " + day + ", " + year;
     document.getElementById("dateID").innerHTML = n;
 
-    if (day == 1) {
+    if (day >= 1) {
       update();
     } else {
       pass
@@ -150,7 +150,13 @@
       q = document.getElementById("pops").textContent;
       population1 = q;
       population2 = q;
-      population2 = (population2 * 1.0078);
+
+      var e = Math.floor((Math.random() * 30) + 1);
+      e = (e - 10);
+      e = (1 + (e / 100000));
+
+      population2 = (population2 * e);
+
       population2 = Math.round(population2)
       populationchange = (population2 - population1);
       document.getElementById("pops").innerHTML = population2;
@@ -160,13 +166,14 @@
     //populationchange = (population2 - population1);
     popstring = population2.toLocaleString();
     document.getElementById("bringe3").innerHTML = popstring;
+    document.getElementById("Population").innerHTML = "<b>" + popstring + "</b>";
 
     if ((population2 - population1) > 0) {
-      document.getElementById("Population").innerHTML = "<b>" + popstring + "</b> (<span style=\"color: green;\">+" + populationchange + "</span>)";
+      document.getElementById("popcha").innerHTML = "(<span style=\"color: green;\">+" + populationchange + "</span>)";
     } else if ((population2 - population1) < 0) {
-      document.getElementById("Population").innerHTML = "<b>" + popstring + "</b> (<span style=\"color: red;\">" + populationchange + "</span>)";
+      document.getElementById("popcha").innerHTML = "(<span style=\"color: red;\">" + populationchange + "</span>)";
     } else {
-      document.getElementById("Population").innerHTML = "<b>" + popstring + "</b> (<span>" + populationchange + "</span>)";
+      document.getElementById("popcha").innerHTML = "(<span>" + populationchange + "</span>)";
     }
   }
 
@@ -175,10 +182,11 @@
   function gdpupdate() {
     q = document.getElementById("pops").textContent;
     gdp = ((q * gdpcapita)/1000);
+    gdp = Math.round(gdp);
     gdpstring = gdp.toLocaleString();
-    document.getElementById("gdp").innerHTML = gdpstring + "$";
+    document.getElementById("gdp").innerHTML = "<b>" + gdpstring + "</b>$";
 
-    document.getElementById("gdpcapita").innerHTML = gdpcapita + "$";
+    document.getElementById("gdpcapita").innerHTML = "<b>" + gdpcapita + "$</b>";
   }
 
   function taxslider(){
@@ -189,6 +197,10 @@
     slider.oninput = function() {
       output.innerHTML = ("<b>" + this.value + "%</b>");
     }
+  }
+
+  function bankupdate() {
+    a = 1;
   }
   </script>
 </head>
@@ -217,11 +229,12 @@
   </div>
 
   <div id="main">
-    <div style="width: 45%; float:left">
-       <table class="a">
+    <div style="width: 45%; float:left;">
+       <table class="a" style="table-layout:fixed; width:100%;">
          <tr>
            <td>Population</td>
-           <td id="Population" style="text-align:right; padding-right: 1%;"></td>
+           <td id="Population" style="text-align:right; padding-left: 37%;"></td>
+           <td id="popcha" style="text-align:right; padding-right:1%;"></td>
          </tr>
        </table>
        <br>
@@ -267,7 +280,7 @@
       <table class="a">
         <tr>
           <td>National Bank</td>
-          <td id="Bank" style="text-align:right; padding-right: 1%;"><b>500$</b> (+32$)</td>
+          <td id="bank" style="text-align:right; padding-right: 1%;"><b>500$</b> (+0$)</td>
         </tr>
       </table>
       <br>

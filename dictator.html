@@ -72,9 +72,15 @@
     var population1 = 100000;
     var population2 = 100000;
     populationchange = (population2 - population1);
-
     popstring = population2.toLocaleString();
-    document.getElementById("Population").innerHTML = "<b>" + popstring + "</b> (" + populationchange + ")";
+
+    if ((population2 - population1) > 0) {
+      document.getElementById("Population").innerHTML = "<b>" + popstring + "</b> (<span style=\"color: green;\">+" + populationchange + "</span>)";
+    } else if ((population2 - population1) < 0) {
+      document.getElementById("Population").innerHTML = "<b>" + popstring + "</b> (<span style=\"color: red;\">" + populationchange + "</span>)";
+    } else {
+      document.getElementById("Population").innerHTML = "<b>" + popstring + "</b> (<span>" + populationchange + "</span>)";
+    }
   }
 
   function taxslider(){
@@ -89,7 +95,7 @@
   </script>
 </head>
 
-<body onload="mytimer(); invisible();">
+<body onload="mytimer(); invisibl();">
   <center>
     <td id="CountryName" style="text-align:right; padding-right: 1%;"></td>
   </center>
@@ -129,41 +135,57 @@
            <td id="GDPCapita" style="text-align:right; padding-right: 1%;">0.082%</td>
          </tr>
        </table>
+       <br>
+       <table class="a">
+         <tr>
+           <td>Education Rate</td>
+           <td id="Education" style="text-align:right; padding-right: 1%;"><b>20.0%</b></td>
+         </tr>
+       </table>
+      <hr>
+      <center><h3 style="font-size:150%; margin: 0.1em auto;">Income</h3></center>
+      <hr>
+      <table class="a">
+        <tr>
+          <td>Tax Rate</td>
+          <center>
+            <td><input style="max-width: 100%;" type="range" min="0" max="100" value="25" class="slider" id="myRange" oninput="taxslider();"></td>
+          </center>
+          <td style="text-align: right;"><span id="demo"><b>25%</b></span></td>
+        </tr>
+        <tr>
+          <td>Effective Tax (?)</td>
+          <td></td>
+          <td id="EffectiveIncomeTax" style="text-align:right; padding-right: 1%;"><b>10%</b></td>
+        </tr>
+      </table>
     </div>
 
     <div style="width: 45%; float:right">
       <table class="a">
         <tr>
           <td>National Bank</td>
-          <td></td>
           <td id="Bank" style="text-align:right; padding-right: 1%;"><b>500$</b> (+32$)</td>
-        </tr>
-        <tr>
-          <td>Income Tax</td>
-          <center>
-            <td><input type="range" min="1" max="100" value="25" class="slider" id="myRange" oninput="taxslider();"></td>
-          </center>
-          <td style="text-align: right;"><span id="demo"><b>25%</b></span></td>
         </tr>
       </table>
       <br>
       <table class="a">
         <tr>
           <td>Corruption</td>
-          <td id="Corruption" style="text-align:right; padding-right: 1%;"><b>50%</b> (-20%)</td>
+          <td></td>
+          <td id="Corruption" style="text-align:right; padding-right: 1%;"><b>10%</b></td>
         </tr>
       </table>
       <br>
       <table class="a">
         <tr>
-          <td>Ruling Party</td>
-          <td id="Party" style="text-align:right; padding-right: 1%;">Conservative</td>
-        </tr>
-        <tr>
           <td>Ruling Party Support</td>
-          <td id="Support" style="text-align:right; padding-right: 1%;">20%</td>
+          <td id="Support" style="text-align:right; padding-right: 1%;"><b>20%</b></td>
         </tr>
       </table>
+      <hr>
+      <center><h3 style="font-size:150%; margin: 0.1em auto;">Expenses</h3></center>
+      <hr>
     </div>
   </div>
 </body>

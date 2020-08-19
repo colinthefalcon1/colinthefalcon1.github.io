@@ -40,8 +40,6 @@
   function invisible() {
     var main = document.getElementById("main");
     main.style.display = "none";
-    var date = document.getElementById("date");
-    date.style.display = "none";
   }
 
   function updatecountryname() {
@@ -53,14 +51,28 @@
     } else if (ran == 2) {
       document.getElementById("nameLable").innerHTML = "The Italian Wasteland Known as " + input;
     } else {
-      document.getElementById("nameLable").innerHTML = "The Dreary Republic of " + input;
+      document.getElementById("nameLable").innerHTML = "The Dreary Oligarchy of " + input;
     }
     var myobj = document.getElementById("nameField");
     var myobj2 = document.getElementById("subButton");
     myobj.remove();
     myobj2.remove();
     main.style.display = "block";
-    date.style.display = "block";
+    dateID.style.display = "block";
+  }
+
+  function date() {
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+    ];
+
+    var date = new Date();
+    var date = new Date("01-01-1950");
+    year = date.getFullYear();
+    month = monthNames[date.getMonth()];
+    day = date.getDate();
+    n = month + " " + day + ", " + year;
+    document.getElementById("dateID").innerHTML = n;
   }
 
   function mytimer(){
@@ -105,12 +117,12 @@
     <center>
       <div class='form-uname'>
           <h1><label id='nameLable' for='nameField'>Name your country:</label></h1>
-          <h2 id="date">January 1, 1950</h2>
+          <h2 id="dateID"></h2>
           <hr>
           <input id='nameField' type='text' maxlength='250'></input>
       </div>
       <div class='form-sub'>
-          <button onclick="updatecountryname();" id='subButton' type='button'><b>I'm ready to rule</b></button>
+          <button onclick="updatecountryname(); date();" id='subButton' type='button'><b>I'm ready to rule</b></button>
       </div>
     </center>
     </form>
@@ -138,13 +150,14 @@
        <br>
        <table class="a">
          <tr>
-           <td>Education Rate</td>
-           <td id="Education" style="text-align:right; padding-right: 1%;"><b>20.0%</b></td>
+           <td>Blank</td>
+           <td id="jkwbsdfkjb" style="text-align:right; padding-right: 1%;">0.082%</td>
          </tr>
        </table>
       <hr>
       <center><h3 style="font-size:150%; margin: 0.1em auto;">Income</h3></center>
       <hr>
+
       <table class="a">
         <tr>
           <td>Tax Rate</td>
@@ -159,6 +172,7 @@
           <td id="EffectiveIncomeTax" style="text-align:right; padding-right: 1%;"><b>10%</b></td>
         </tr>
       </table>
+
     </div>
 
     <div style="width: 45%; float:right">
@@ -172,20 +186,47 @@
       <table class="a">
         <tr>
           <td>Corruption</td>
-          <td></td>
           <td id="Corruption" style="text-align:right; padding-right: 1%;"><b>10%</b></td>
         </tr>
-      </table>
-      <br>
-      <table class="a">
         <tr>
           <td>Ruling Party Support</td>
           <td id="Support" style="text-align:right; padding-right: 1%;"><b>20%</b></td>
         </tr>
       </table>
+      <br>
+      <table class="a">
+        <tr>
+          <td>Education Rate</td>
+          <td id="Education" style="text-align:right; padding-right: 1%;"><b>20.0%</b></td>
+        </tr>
+      </table>
       <hr>
       <center><h3 style="font-size:150%; margin: 0.1em auto;">Expenses</h3></center>
       <hr>
+
+      <table class="a">
+        <tr>
+          <td>Education</td>
+          <center>
+            <td><input style="max-width: 100%;" type="range" min="0" max="100" value="25" class="slider" id="myRange" oninput="educationslider();"></td>
+          </center>
+          <td style="text-align: right;"><span id="demo"><b>25%</b> (+0.10%)</span></td>
+        </tr>
+        <tr>
+          <td>Other Cost</td>
+          <center>
+            <td><input style="max-width: 100%;" type="range" min="0" max="100" value="25" class="slider" id="myRange" oninput="educationslider();"></td>
+          </center>
+          <td style="text-align: right;"><span id="demo"><b>25%</b></span></td>
+        </tr>
+      </table>
+      <br>
+      <table class="a">
+        <tr>
+          <td>Debt</td>
+          <td id="Debt" style="text-align:right; padding-right: 1%;"><b>200$</b></td>
+        </tr>
+      </table>
     </div>
   </div>
 </body>

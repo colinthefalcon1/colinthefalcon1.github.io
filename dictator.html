@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Big Boy Meat Market</title>
+  <meta charset="UTF-8" />
+  <meta name="description" content="I hate descriptions">
+  <meta name="keywords" content="Mack Al-Rashid">
+  <meta name="author" content="Ted Cruz">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#000000" />
+  <meta name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+
+  <script>
+  function updatecountryname() {
+    var input = document.getElementById('nameField').value;
+
+    ran = Math.floor((Math.random() * 3) + 1);
+    if (ran == 1) {
+      document.getElementById("nameLable").innerHTML = "The Monarchy of " + input;
+    } else if (ran == 2) {
+      document.getElementById("nameLable").innerHTML = "The Italian Wasteland Known as " + input;
+    } else {
+      document.getElementById("nameLable").innerHTML = "The People's Republic of " + input;
+    }
+    var myobj = document.getElementById("nameField");
+    var myobj2 = document.getElementById("subButton");
+    myobj.remove();
+    myobj2.remove();
+  }
+  </script>
+
+</head>
+
+<body>
+  <center>
+    <td id="CountryName" style="text-align:right; padding-right: 1%;"></td>
+  </center>
+
+  <div class='wrapper'>
+    <form id='nameForm'>
+    <center>
+      <div class='form-uname'>
+          <h1><label id='nameLable' for='nameField'>Name your country:</label></h1>
+          <hr>
+          <input id='nameField' type='text' maxlength='250'></input>
+      </div>
+      <div class='form-sub'>
+          <button onclick="updatecountryname();" id='subButton' type='button'>I'm ready to rule</button>
+      </div>
+    </center>
+    </form>
+  <div>
+      <p id='result'></p></div>
+  </div>
+</body>

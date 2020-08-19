@@ -40,6 +40,8 @@
   function invisible() {
     var main = document.getElementById("main");
     main.style.display = "none";
+    date2.style.display = "none";
+    timeID.style.display = "none";
   }
 
   function updatecountryname() {
@@ -47,7 +49,7 @@
 
     ran = Math.floor((Math.random() * 3) + 1);
     if (ran == 1) {
-      document.getElementById("nameLable").innerHTML = "The Dysfunctional Monarchy of " + input;
+      document.getElementById("nameLable").innerHTML = "The Oppressive Monarchy of " + input;
     } else if (ran == 2) {
       document.getElementById("nameLable").innerHTML = "The Italian Wasteland Known as " + input;
     } else {
@@ -58,7 +60,7 @@
     myobj.remove();
     myobj2.remove();
     main.style.display = "block";
-    dateID.style.display = "block";
+    timeID.style.display = "block";
   }
 
   function date() {
@@ -68,16 +70,45 @@
 
     var date = new Date();
     var date = new Date("01-01-1950");
+    document.getElementById("date2").innerHTML = date;
     year = date.getFullYear();
     month = monthNames[date.getMonth()];
     day = date.getDate();
+    n = month + " " + day + ", " + year;
+    m = n.toString();
+    document.getElementById("dateID").innerHTML = m;
+  }
+
+  var added = 0;
+
+  function add() {
+    added++;
+    addday();
+  }
+
+  function addday() {
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+    ];
+
+    Date.prototype.addDays = function(days) {
+      var date = new Date(this.valueOf());
+      date.setDate(date.getDate() + days);
+      return date;
+    }
+    var y = document.getElementById("date2").textContent;
+    var x = new Date(y);
+    z = x.addDays(added);
+    year = z.getFullYear();
+    month = monthNames[z.getMonth()];
+    day = z.getDate();
     n = month + " " + day + ", " + year;
     document.getElementById("dateID").innerHTML = n;
   }
 
   function mytimer(){
-    update();
-    setTimeout(mytimer, 500);
+    add();
+    var t = setTimeout(mytimer, 500);
   }
 
   function update() {
@@ -107,7 +138,7 @@
   </script>
 </head>
 
-<body onload="mytimer(); invisible();">
+<body onload="invisible();">
   <center>
     <td id="CountryName" style="text-align:right; padding-right: 1%;"></td>
   </center>
@@ -117,7 +148,10 @@
     <center>
       <div class='form-uname'>
           <h1><label id='nameLable' for='nameField'>Name your country:</label></h1>
-          <h2 id="dateID"></h2>
+          <div id="timeID">
+            <h2 id="dateID"></h2><span id="date2">text</span>
+            <button onclick=" mytimer();">▶️</button>
+          </div>
           <hr>
           <input id='nameField' type='text' maxlength='250'></input>
       </div>
@@ -230,3 +264,5 @@
     </div>
   </div>
 </body>
+
+<button id="bringe" onclick=" mytimer();"<b>Add day</b></button>

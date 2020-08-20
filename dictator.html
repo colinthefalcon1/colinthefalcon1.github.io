@@ -64,6 +64,7 @@
     pause.style.display = "block";
     mytimer();
     update();
+    taxslider();
   }
 
   function date() {
@@ -161,6 +162,8 @@
       populationchange = (population2 - population1);
       document.getElementById("pops").innerHTML = population2;
       gdpupdate();
+      bankupdate();
+      taxslider();
     }
 
     //populationchange = (population2 - population1);
@@ -185,22 +188,61 @@
     gdp = Math.round(gdp);
     gdpstring = gdp.toLocaleString();
     document.getElementById("gdp").innerHTML = "<b>" + gdpstring + "</b>$";
-
     document.getElementById("gdpcapita").innerHTML = "<b>" + gdpcapita + "$</b>";
   }
 
   function taxslider(){
     var slider = document.getElementById("myRange");
     var output = document.getElementById("demo");
-    output.innerHTML = slider.value;
-
+    rate = slider.value;
+    output.innerHTML = "<b>" + slider.value + "%</b>";
     slider.oninput = function() {
       output.innerHTML = ("<b>" + this.value + "%</b>");
     }
   }
 
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  zer = 0;
+
   function bankupdate() {
-    a = 1;
+    if (zer == 0) {
+      //money = 100;
+      income = 0;
+      document.getElementById("bank").innerHTML = "<b>" + 1000 + "</b>";
+      document.getElementById("bringe4").innerHTML = 1000;
+      zer++;
+    } else {
+      money = document.getElementById("bringe4").textContent;
+      r = parseFloat(money);
+
+      yincome = ((rate / 100) * gdp);
+      yincome = Math.round(yincome);
+      income = (yincome / 365);
+      incomestring = income.toFixed(1)
+      total = (r + income);
+      totalstring = total.toFixed(0);
+      totalstring2 = numberWithCommas(totalstring);
+
+      document.getElementById("bringe4").innerHTML = total;
+
+      if (income > 0) {
+        document.getElementById("bank").innerHTML = "(<span style=\"color: green;\">+" + incomestring + "</span>) <b>" + totalstring2 + "$</b>";
+      } else {
+        document.getElementById("bank").innerHTML = "(<span style=\"color: red;\">+" + incomestring + "</span>) <b>" + totalstring2 + "$</b>";
+      }
+      /*
+      document.getElementById("1").innerHTML = yincome + " yearly income";
+      document.getElementById("2").innerHTML = gdp + " gdp";
+      document.getElementById("3").innerHTML = r + " money";
+      document.getElementById("4").innerHTML = rate + " tax rate";
+      document.getElementById("5").innerHTML = income + " income";
+      document.getElementById("6").innerHTML = typeof total + " ";
+      document.getElementById("7").innerHTML = totalstring + " ";
+      */
+    }
   }
   </script>
 </head>
@@ -216,7 +258,12 @@
       <div class='form-uname'>
         <h1><label id='nameLable' for='nameField'>Name your country:</label></h1>
         <h2 style="margin: 0.4em auto;" id="dateID"></h2>
-        <div id="dumb"><span id="date2">text</span><span id="pops">text</span><p id="bringe3">text</p></div>
+        <div id="dumb">
+          <span id="date2">text</span>
+          <span id="pops">text</span>
+          <p id="bringe3">text</p>
+          <p id="bringe4">text</p>
+        </div>
         <button type='button' id='pause' onclick='symbol();'>play</button>
         <hr>
         <input id='nameField' type='text' maxlength='250'></input>
@@ -261,15 +308,22 @@
       <table class="a">
         <tr>
           <td>Tax Rate</td>
-          <center>
-            <td><input style="max-width: 100%;" type="range" min="0" max="100" value="25" class="slider" id="myRange" oninput="taxslider();"></td>
-          </center>
-          <td style="text-align: right;"><span id="demo"><b>25%</b></span></td>
+          <!--<div style="width: 45%;">-->
+          <td style="width:25%;"><input style="max-width: 100%;" type="range" min="0" max="100" value="25" class="slider" id="myRange" oninput="taxslider();"></td>
+          <td style="text-align: right; width:25%;"><span id="demo"><b>25%</b></span></td>
+          </div>
         </tr>
         <tr>
           <td>Effective Tax (?)</td>
           <td></td>
           <td id="EffectiveIncomeTax" style="text-align:right; padding-right: 1%;"><b>10%</b></td>
+        </tr>
+      </table>
+      <br>
+      <table class="a">
+        <tr>
+          <td>Total Income</td>
+          <td id="Debt" style="text-align:right; padding-right: 1%;"><b>200$</b></td>
         </tr>
       </table>
 
@@ -279,7 +333,7 @@
       <table class="a">
         <tr>
           <td>National Bank</td>
-          <td id="bank" style="text-align:right; padding-right: 1%;"><b>500$</b> (+0$)</td>
+          <td id="bank" style="text-align:right; padding-right: 1%;"></td>
         </tr>
       </table>
       <br>
@@ -331,10 +385,23 @@
           <td id="Debt" style="text-align:right; padding-right: 1%;"><b>20$</b></td>
         </tr>
       </table>
+      <br>
+      <table class="a">
+        <tr>
+          <td>Total Expenses</td>
+          <td id="Debt" style="text-align:right; padding-right: 1%;"><b>200$</b></td>
+        </tr>
+      </table>
     </div>
   </div>
 </body>
 
-<!--<p id="bringe4">text</p>-->
+<p id="1"></p>
+<p id="2"></p>
+<p id="3"></p>
+<p id="4"></p>
+<p id="5"></p>
+<p id="6"></p>
+<p id="7"></p>
 
 <!--<button id="bringe" onclick=" mytimer();"<b>Add day</b></button>

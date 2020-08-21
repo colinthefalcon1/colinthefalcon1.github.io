@@ -187,7 +187,7 @@
     gdp = ((q * gdpcapita)/1000);
     gdp = Math.round(gdp);
     gdpstring = gdp.toLocaleString();
-    document.getElementById("gdp").innerHTML = "<b>" + gdpstring + "</b>$";
+    document.getElementById("gdp").innerHTML = "<b>" + gdpstring + "$</b>";
     document.getElementById("gdpcapita").innerHTML = "<b>" + gdpcapita + "$</b>";
   }
 
@@ -198,6 +198,22 @@
     output.innerHTML = "<b>" + slider.value + "%</b>";
     slider.oninput = function() {
       output.innerHTML = ("<b>" + this.value + "%</b>");
+    }
+  }
+
+  function eduslider(){
+    var eduslider = document.getElementById("edumyRange");
+    var eduoutput = document.getElementById("edudemo");
+    eduoutput2 = parseFloat(eduslider);
+    edurate = eduslider.value;
+    //eduratestring = edurate.toFixed(0);
+    //yeducost = (edurate * ((.25 * population2) / 365));
+
+    document.getElementById("nae1").innerHTML = typeof eduoutput;
+
+    eduoutput.innerHTML = "<b>" + eduslider.value + "%</b>";
+    slider.oninput = function() {
+      eduoutput.innerHTML = ("<b>" + this.value + "%</b>");
     }
   }
 
@@ -322,18 +338,21 @@
       <br>
       <table class="a">
         <tr>
-          <td>Total Income</td>
-          <td id="Debt" style="text-align:right; padding-right: 1%;"><b>200$</b></td>
+          <td>Daily Income</td>
+          <td id="IncomeID" style="text-align:right; padding-right: 1%;"><b>200$</b></td>
+        </tr>
+        <tr>
+          <td>Monthly Income</td>
+          <td id="IncomeID" style="text-align:right; padding-right: 1%;"><b>200$</b></td>
         </tr>
       </table>
-
     </div>
 
     <div style="width: 45%; float:right">
       <table class="a">
         <tr>
           <td>National Bank</td>
-          <td id="bank" style="text-align:right; padding-right: 1%;"></td>
+          <td id="bank" style="text-align:right; padding-right: 1%;"><b>1,000$</b></td>
         </tr>
       </table>
       <br>
@@ -350,7 +369,7 @@
       <br>
       <table class="a">
         <tr>
-          <td>Education Rate</td>
+          <td>% Educated</td>
           <td id="Education" style="text-align:right; padding-right: 1%;"><b>20.0%</b></td>
         </tr>
       </table>
@@ -366,29 +385,15 @@
           </center>
           <td style="text-align: right;"><span id="demo"><b>25%</b> (+0.10%)</span></td>
         </tr>
-        <tr>
-          <td>Other Cost</td>
-          <center>
-            <td><input style="max-width: 100%;" type="range" min="0" max="100" value="25" class="slider" id="myRange" oninput="educationslider();"></td>
-          </center>
-          <td style="text-align: right;"><span id="demo"><b>25%</b></span></td>
-        </tr>
       </table>
       <br>
       <table class="a">
         <tr>
-          <td>Debt</td>
+          <td>Daily Expenses</td>
           <td id="Debt" style="text-align:right; padding-right: 1%;"><b>200$</b></td>
         </tr>
         <tr>
-          <td>Interest</td>
-          <td id="Debt" style="text-align:right; padding-right: 1%;"><b>20$</b></td>
-        </tr>
-      </table>
-      <br>
-      <table class="a">
-        <tr>
-          <td>Total Expenses</td>
+          <td>Monthly Expenses</td>
           <td id="Debt" style="text-align:right; padding-right: 1%;"><b>200$</b></td>
         </tr>
       </table>
@@ -396,12 +401,12 @@
   </div>
 </body>
 
-<p id="1"></p>
-<p id="2"></p>
-<p id="3"></p>
-<p id="4"></p>
-<p id="5"></p>
-<p id="6"></p>
-<p id="7"></p>
+<p id="nae1"></p>
+<p id="nae2"></p>
+<p id="nae3"></p>
+<p id="nae4"></p>
+<p id="nae5"></p>
+<p id="nae6"></p>
+<p id="nae7"></p>
 
 <!--<button id="bringe" onclick=" mytimer();"<b>Add day</b></button>

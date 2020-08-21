@@ -2,38 +2,41 @@
 <html>
 <head>
   <title>Big Boy Meat Market</title>
-  <meta charset="UTF-8" />
-  <meta name="description" content="I hate descriptions">
-  <meta name="keywords" content="Mack Al-Rashid">
-  <meta name="author" content="Ted Cruz">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="theme-color" content="#000000" />
-  <meta name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+    <meta charset="UTF-8" />
+    <meta name="description" content="I hate descriptions">
+    <meta name="keywords" content="Mack Al-Rashid">
+    <meta name="author" content="Ted Cruz">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#000000" />
+    <meta name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
 
   <style>
-  body {
-    padding-left: 2%;
-    padding-right: 2%;
-    font-family: sans-serif;
-    background-color: #f2f2f2;
-  }
-  table.a {
-    width: 100%
-  }
-  #summary {
-    justify-content: center;
-    width: 100%;
-  }
-  table, th, td {
-    border-collapse: collapse;
-  }
-  tr:nth-child(even) {
-    background-color: #c0c0c0;
-  }
-  tr:nth-child(odd) {
-    background-color:  #e6e6e6;
-  }
+    body {
+      padding-left: 2%;
+      padding-right: 2%;
+      font-family: sans-serif;
+      background-color: #f2f2f2;
+    }
+    table.a {
+      width: 100%
+    }
+    #summary {
+      justify-content: center;
+      width: 100%;
+    }
+    table, th, td {
+      border-collapse: collapse;
+    }
+    tr:nth-child(even) {
+      background-color: #c0c0c0;
+    }
+    tr:nth-child(odd) {
+      background-color:  #e6e6e6;
+    }
+    tr.b {
+      background-color:  #c0c0c0;
+    }
   </style>
 
   <script>
@@ -43,6 +46,7 @@
     date2.style.display = "none";
     pause.style.display = "none";
     dumb.style.display = "none";
+    nae.style.display = "none";
   }
 
   function updatecountryname() {
@@ -52,7 +56,7 @@
     if (ran == 1) {
       document.getElementById("nameLable").innerHTML = "The Oppressive Monarchy of " + input;
     } else if (ran == 2) {
-      document.getElementById("nameLable").innerHTML = "The Italian Wasteland Known as " + input;
+      document.getElementById("nameLable").innerHTML = "The Nuclear Wasteland Known as " + input;
     } else {
       document.getElementById("nameLable").innerHTML = "The Dreary Oligarchy of " + input;
     }
@@ -65,6 +69,7 @@
     mytimer();
     update();
     taxslider();
+    //eduslider();
   }
 
   function date() {
@@ -131,6 +136,7 @@
 
     if (day >= 1) {
       update();
+      eduslider();
     } else {
       pass
     }
@@ -164,6 +170,7 @@
       gdpupdate();
       bankupdate();
       taxslider();
+      //eduslider();
     }
 
     //populationchange = (population2 - population1);
@@ -201,19 +208,37 @@
     }
   }
 
+  var zed2 = 0;
   function eduslider(){
-    var eduslider = document.getElementById("edumyRange");
-    var eduoutput = document.getElementById("edudemo");
-    eduoutput2 = parseFloat(eduslider);
-    edurate = eduslider.value;
-    //eduratestring = edurate.toFixed(0);
-    //yeducost = (edurate * ((.25 * population2) / 365));
+    if (zed2 == 0) {
+      var edurate = 50;
+      document.getElementById("nae1").innerHTML = edurate;
+      zed2++;
+    } else {
+      var eduslider = document.getElementById("edumyRange");
+      var eduoutput = document.getElementById("edudemo");
+      eduoutput2 = parseFloat(eduslider);
+      edurate = eduslider.value;
+      edurate2 = parseFloat(edurate);
 
-    document.getElementById("nae1").innerHTML = typeof eduoutput;
+      yeducost = ((edurate / 100) * (.4 * pops2) * .5);
+      deducost = (yeducost / 365);
 
-    eduoutput.innerHTML = "<b>" + eduslider.value + "%</b>";
-    slider.oninput = function() {
-      eduoutput.innerHTML = ("<b>" + this.value + "%</b>");
+      document.getElementById("bringe5").innerHTML = yeducost;
+
+      deducoststring = deducost.toFixed(1);
+
+      document.getElementById("educostID").innerHTML = "<b><span style=\"color: red;\">-" + deducoststring + "$</span></b>";
+
+      document.getElementById("nae1").innerHTML = edurate;
+      document.getElementById("nae2").innerHTML = pops2;
+      document.getElementById("nae3").innerHTML = yeducost;
+      document.getElementById("nae4").innerHTML = deducost;
+
+      eduoutput.innerHTML = "<b>" + eduslider.value + "%</b>";
+      slider.oninput = function() {
+        eduoutput.innerHTML = ("<b>" + this.value + "%</b>");
+      }
     }
   }
 
@@ -225,7 +250,6 @@
 
   function bankupdate() {
     if (zer == 0) {
-      //money = 100;
       income = 0;
       document.getElementById("bank").innerHTML = "<b>" + 1000 + "</b>";
       document.getElementById("bringe4").innerHTML = 1000;
@@ -234,30 +258,42 @@
       money = document.getElementById("bringe4").textContent;
       r = parseFloat(money);
 
+      yeducost = document.getElementById("bringe5").textContent;
+      yexpenses = yeducost;
+      dexpenses = (yexpenses / 365)
+      dexpensesstring = dexpenses.toFixed(1);
+      mexpenses = (dexpenses * 30);
+      mexpensesstring = mexpenses.toFixed(1);
+      document.getElementById("dailyexpensesID").innerHTML = "<b><span style=\"color: red;\">-" + dexpensesstring + "$</span></b>";
+      document.getElementById("monthlyexpensesID").innerHTML = "<b><span style=\"color: red;\">-" + mexpensesstring + "$</span></b>";
+
       yincome = ((rate / 100) * gdp);
       yincome = Math.round(yincome);
       income = (yincome / 365);
       incomestring = income.toFixed(1)
+      monthlyincomestring = (income * 30);
+      monthlyincomestring = monthlyincomestring.toFixed(1);
+
+      dprofit = (income - dexpenses);
+      dprofitstring = dprofit.toFixed(1);
+
+      pops2 = document.getElementById("pops").textContent;
+
       total = (r + income);
       totalstring = total.toFixed(0);
       totalstring2 = numberWithCommas(totalstring);
 
       document.getElementById("bringe4").innerHTML = total;
 
-      if (income > 0) {
-        document.getElementById("bank").innerHTML = "(<span style=\"color: green;\">+" + incomestring + "</span>) <b>" + totalstring2 + "$</b>";
+      document.getElementById("taxincomeID").innerHTML = "<b><span style=\"color: green;\">+" + incomestring + "$</span></b>"
+      document.getElementById("dailyincomeID").innerHTML = "<b><span style=\"color: green;\">+" + incomestring + "$</span></b>"
+      document.getElementById("monthlyincomeID").innerHTML = "<b><span style=\"color: green;\">+" + monthlyincomestring + "$</span></b>"
+
+      if (dprofit > 0) {
+        document.getElementById("bank").innerHTML = "(<span style=\"color: green;\">+" + dprofitstring + "</span>) <b>" + totalstring2 + "$</b>";
       } else {
-        document.getElementById("bank").innerHTML = "(<span style=\"color: red;\">+" + incomestring + "</span>) <b>" + totalstring2 + "$</b>";
+        document.getElementById("bank").innerHTML = "(<span style=\"color: red;\">" + dprofitstring + "</span>) <b>" + totalstring2 + "$</b>";
       }
-      /*
-      document.getElementById("1").innerHTML = yincome + " yearly income";
-      document.getElementById("2").innerHTML = gdp + " gdp";
-      document.getElementById("3").innerHTML = r + " money";
-      document.getElementById("4").innerHTML = rate + " tax rate";
-      document.getElementById("5").innerHTML = income + " income";
-      document.getElementById("6").innerHTML = typeof total + " ";
-      document.getElementById("7").innerHTML = totalstring + " ";
-      */
     }
   }
   </script>
@@ -276,9 +312,10 @@
         <h2 style="margin: 0.4em auto;" id="dateID"></h2>
         <div id="dumb">
           <span id="date2">text</span>
-          <span id="pops">text</span>
+          <span id="pops">text2</span>
           <p id="bringe3">text</p>
           <p id="bringe4">text</p>
+          <p id="bringe5">textst</p>
         </div>
         <button type='button' id='pause' onclick='symbol();'>play</button>
         <hr>
@@ -302,19 +339,23 @@
        <br>
        <table class="a">
          <tr>
-           <td>GDP</td>
-           <td id="gdp" style="text-align:right; padding-right: 1%;"></td>
+           <td>I forgot</td>
+           <td id="Debt" style="text-align:right; padding-right: 1%;"><b>not money</b></td>
          </tr>
          <tr>
-           <td>GDP Per Capita</td>
-           <td id="gdpcapita" style="text-align:right; padding-right: 1%;">0.082%</td>
+           <td>Something related</td>
+           <td id="Debt" style="text-align:right; padding-right: 1%;"><b>idk</b></td>
          </tr>
        </table>
        <br>
        <table class="a">
          <tr>
-           <td>Blank</td>
-           <td id="jkwbsdfkjb" style="text-align:right; padding-right: 1%;">0.082%</td>
+           <td>Corruption</td>
+           <td id="Corruption" style="text-align:right; padding-right: 1%;"><b>10%</b></td>
+         </tr>
+         <tr>
+           <td>Ruling Party Support</td>
+           <td id="Support" style="text-align:right; padding-right: 1%;"><b>20%</b></td>
          </tr>
        </table>
       <hr>
@@ -329,21 +370,37 @@
           <td style="text-align: right; width:25%;"><span id="demo"><b>25%</b></span></td>
           </div>
         </tr>
-        <tr>
-          <td>Effective Tax (?)</td>
-          <td></td>
-          <td id="EffectiveIncomeTax" style="text-align:right; padding-right: 1%;"><b>10%</b></td>
+      </table>
+      <table class="a">
+        <tr class="b">
+          <td>Tax Income</td>
+          <td id="taxincomeID" style="text-align:right; padding-right: 1%;"><b>+0.0$</b></td>
         </tr>
       </table>
       <br>
+      <!--
+      <table class="a">
+        <tr>
+          <td>Another slider</td>
+          <td style="width:25%;"><input style="max-width: 100%;" type="range" min="0" max="100" value="25" class="slider" id="b add on input"></td>
+          <td style="text-align: right; width:25%;"><span id="blah"><b>25%</b></span></td>
+        </tr>
+      </table>
+      <table class="a">
+        <tr class="b">
+          <td>Another Income</td>
+          <td id="Debt" style="text-align:right; padding-right: 1%;"><b>200$</b></td>
+        </tr>
+      </table>
+      <br>-->
       <table class="a">
         <tr>
           <td>Daily Income</td>
-          <td id="IncomeID" style="text-align:right; padding-right: 1%;"><b>200$</b></td>
+          <td id="dailyincomeID" style="text-align:right; padding-right: 1%;"><b>+0.0$</b></td>
         </tr>
         <tr>
           <td>Monthly Income</td>
-          <td id="IncomeID" style="text-align:right; padding-right: 1%;"><b>200$</b></td>
+          <td id="monthlyincomeID" style="text-align:right; padding-right: 1%;"><b>+0.0$</b></td>
         </tr>
       </table>
     </div>
@@ -358,19 +415,23 @@
       <br>
       <table class="a">
         <tr>
-          <td>Corruption</td>
-          <td id="Corruption" style="text-align:right; padding-right: 1%;"><b>10%</b></td>
+          <td>GDP</td>
+          <td id="gdp" style="text-align:right; padding-right: 1%;"></td>
         </tr>
         <tr>
-          <td>Ruling Party Support</td>
-          <td id="Support" style="text-align:right; padding-right: 1%;"><b>20%</b></td>
+          <td>GDP Per Capita</td>
+          <td id="gdpcapita" style="text-align:right; padding-right: 1%;">0.082%</td>
         </tr>
       </table>
       <br>
       <table class="a">
         <tr>
-          <td>% Educated</td>
+          <td>Literacy Rate</td>
           <td id="Education" style="text-align:right; padding-right: 1%;"><b>20.0%</b></td>
+        </tr>
+        <tr>
+          <td>Poverty Rate</td>
+          <td id="Poverty" style="text-align:right; padding-right: 1%;"><b>50.0%</b></td>
         </tr>
       </table>
       <hr>
@@ -380,31 +441,65 @@
       <table class="a">
         <tr>
           <td>Education</td>
-          <td style="width:25%;"><input style="max-width: 100%;" type="range" min="0" max="100" value="25" class="slider" id="edumyRange" oninput="eduslider();"></td>
-          <td style="text-align: right; width:25%;"><span id="edudemo"><b>25%</b></span></td>
+          <td style="width:25%;"><input style="max-width: 100%;" type="range" min="0" max="100" value="50" class="slider" id="edumyRange" oninput="eduslider();"></td>
+          <td style="text-align: right; width:25%;"><span id="edudemo"><b>50%</b></span></td>
+        </tr>
+      </table>
+      <table class="a">
+        <tr class="b">
+          <td>Education Cost</td>
+          <td id="educostID" style="text-align:right; padding-right: 1%;"><b>-0.0$</b></td>
+        </tr>
+      </table>
+      <br>
+      <!--
+      <table class="a">
+        <tr>
+          <td>Another Slider</td>
+          <td style="width:25%;"><input style="max-width: 100%;" type="range" min="0" max="100" value="25" class="slider" id="b add an oninput2"></td>
+          <td style="text-align: right; width:25%;"><span id="blah"><b>25%</b></span></td>
+        </tr>
+      </table>
+      <table class="a">
+        <tr class="b">
+          <td>Another Expense</td>
+          <td id="Debt" style="text-align:right; padding-right: 1%;"><b>200$</b></td>
         </tr>
       </table>
       <br>
       <table class="a">
         <tr>
-          <td>Daily Expenses</td>
+          <td>Debt</td>
           <td id="Debt" style="text-align:right; padding-right: 1%;"><b>200$</b></td>
         </tr>
         <tr>
-          <td>Monthly Expenses</td>
+          <td>Another Cost</td>
           <td id="Debt" style="text-align:right; padding-right: 1%;"><b>200$</b></td>
+        </tr>
+      </table>
+      <br>-->
+      <table class="a">
+        <tr>
+          <td>Daily Expenses</td>
+          <td id="dailyexpensesID" style="text-align:right; padding-right: 1%;"><b>-0.0$</b></td>
+        </tr>
+        <tr>
+          <td>Monthly Expenses</td>
+          <td id="monthlyexpensesID" style="text-align:right; padding-right: 1%;"><b>-0.0$</b></td>
         </tr>
       </table>
     </div>
   </div>
 </body>
 
-<p id="nae1"></p>
-<p id="nae2"></p>
-<p id="nae3"></p>
-<p id="nae4"></p>
-<p id="nae5"></p>
-<p id="nae6"></p>
-<p id="nae7"></p>
-
-<!--<button id="bringe" onclick=" mytimer();"<b>Add day</b></button>
+<div id="nae">
+  <p id="nae1">1</p>
+  <p id="nae2">2</p>
+  <p id="nae3">3</p>
+  <p id="nae4">4</p>
+  <p id="nae5">5</p>
+  <p id="nae6">6</p>
+  <p id="nae7">7</p>
+  <p id="nae8">8</p>
+  <p id="nae9">9</p>
+</div>
